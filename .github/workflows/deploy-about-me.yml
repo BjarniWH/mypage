@@ -44,8 +44,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Nx angular/build:application executor outputs to dist/apps/<app-name>/browser by default
-          path: 'dist/apps/about-me/browser'
+          # Nx angular/build:application executor outputs to dist/about-me/browser by default
+          path: 'dist/about-me/browser'
 
   deploy:
     environment:
