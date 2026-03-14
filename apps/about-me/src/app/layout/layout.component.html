@@ -1,15 +1,57 @@
 <div class="layout-container">
-  <header class="header">
-    <div class="logo" routerLink="/">MyPage</div>
-    <nav class="nav">
-      <a routerLink="/" class="nav-link">Home</a>
-      <a routerLink="/about" class="nav-link">About Me</a>
-    </nav>
-  </header>
-  <main class="main-content">
-    <router-outlet></router-outlet>
-  </main>
-  <footer class="footer">
-    <p>&copy; 2026 MyPage. Built with Angular & Nx.</p>
-  </footer>
+  <aside #sidebar class="sidebar" [class.expanded]="isExpanded()">
+    <div class="sidebar-top">
+      <button class="menu-toggle" (click)="toggleSidebar()" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="nav">
+        <!-- Home Link represented by the Logo/Icon -->
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" aria-label="Home">
+          <div class="icon-container logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <defs>
+                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                   <stop offset="0%" stop-color="#667eea" />
+                   <stop offset="100%" stop-color="#764ba2" />
+                 </linearGradient>
+               </defs>
+               <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+               <polyline points="2 17 12 22 22 17"></polyline>
+               <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          @if (isExpanded()) {
+            <span class="nav-text logo-text">MyPage</span>
+          }
+        </a>
+
+        <!-- About Me Link -->
+        <a routerLink="/about" routerLinkActive="active" class="nav-link" aria-label="About Me">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          @if (isExpanded()) {
+             <span class="nav-text">About Me</span>
+          }
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="content-wrapper">
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2026 MyPage. Built with Angular & Nx.</p>
+    </footer>
+  </div>
 </div>

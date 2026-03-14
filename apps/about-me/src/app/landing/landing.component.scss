@@ -1,23 +1,111 @@
+:host {
+  display: block;
+}
+
+.interactive-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #09090b; /* Deep dark base */
+  overflow: hidden;
+  z-index: -1;
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
+}
+
+/* Ambient animated background waves */
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, transparent 60%);
+  top: -200px;
+  left: -200px;
+  animation: float1 20s infinite ease-in-out alternate;
+}
+
+.blob-2 {
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 60%);
+  bottom: -300px;
+  right: -200px;
+  animation: float2 25s infinite ease-in-out alternate;
+}
+
+.blob-3 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 60%);
+  top: 50%;
+  left: 50%;
+  animation: float3 18s infinite ease-in-out alternate;
+}
+
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3; /* Sits over the glow-overlay so the dots aren't blurred out of existence */
+  pointer-events: none;
+}
+
+.glow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(100px); 
+  -webkit-backdrop-filter: blur(100px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 4rem);
+}
+
 .landing-hero {
   text-align: center;
   padding: 4rem 1rem;
   animation: fadeIn 0.8s ease-out;
 }
+
 .title {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.2;
 }
+
 .subtitle {
   font-size: 1.5rem;
-  color: #666;
+  color: #e2e8f0;
   margin-bottom: 3rem;
   font-weight: 300;
 }
+
 .cta-button {
   display: inline-block;
   padding: 0.8rem 2rem;
@@ -29,10 +117,35 @@
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
 }
+
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
 }
+
+@keyframes pulseBlob {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15) translateY(-10px) translateX(10px); }
+}
+
+@keyframes float1 {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.2) translate(100px, 50px); }
+  100% { transform: scale(0.9) translate(-50px, 150px); }
+}
+
+@keyframes float2 {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.1) translate(-150px, -100px); }
+  100% { transform: scale(1.3) translate(50px, -200px); }
+}
+
+@keyframes float3 {
+  0% { transform: scale(1) translate(-50%, -50%); }
+  50% { transform: scale(1.4) translate(-30%, -60%); }
+  100% { transform: scale(0.8) translate(-60%, -40%); }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
