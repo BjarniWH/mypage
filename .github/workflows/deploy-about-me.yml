@@ -48,12 +48,12 @@ jobs:
       - name: Post-build language shuffling
         run: |
           # The build puts everything in dist/apps/about-me/browser/[locale]
-          # We want the default language (en-US) at the root, and others in subdirectories.
+          # We want the default language (en-GB) at the root, and others in subdirectories.
           cd dist/apps/about-me/browser
-          cp -r en-US/* .
+          cp -r en-GB/* .
           # We keep fo and da folders as they are
-          # We can remove the en-US folder to keep it clean, but it doesn't hurt to stay.
-          rm -rf en-US
+          # We can remove the en-GB folder to keep it clean, but it doesn't hurt to stay.
+          rm -rf en-GB
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
