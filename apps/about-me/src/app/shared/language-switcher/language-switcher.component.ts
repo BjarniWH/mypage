@@ -102,16 +102,16 @@ import { CommonModule } from '@angular/common';
       }
 
       .dropdown-menu {
-        position: fixed;
-        bottom: 80px; /* Positioned above the switcher at the bottom of sidebar */
-        left: 12px;
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 0;
         width: 216px;
         padding: 8px;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         border: 1px solid rgba(0, 0, 0, 0.05);
         border-radius: 12px;
         list-style: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         backdrop-filter: blur(15px);
         z-index: 1000;
         margin: 0;
