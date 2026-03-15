@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -42,10 +45,20 @@ jobs:
       - name: Build the about-me app
         run: npx nx build about-me --configuration=production --base-href=${{ steps.pages.outputs.base_path }}/
 
+      - name: Post-build language shuffling
+        run: |
+          # The build puts everything in dist/apps/about-me/browser/[locale]
+          # We want the default language (en-US) at the root, and others in subdirectories.
+          cd dist/apps/about-me/browser
+          cp -r en-US/* .
+          # We keep fo and da folders as they are
+          # We can remove the en-US folder to keep it clean, but it doesn't hurt to stay.
+          rm -rf en-US
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Nx angular/build:application executor outputs to dist/apps/about-me/browser
+          # The shuffling happened inside this directory
           path: 'dist/apps/about-me/browser'
 
   deploy:

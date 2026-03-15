@@ -9,6 +9,13 @@
   },
   "sourceRoot": "apps/about-me/src",
   "prefix": "app",
+  "i18n": {
+    "sourceLocale": "en-US",
+    "locales": {
+      "fo": "apps/about-me/src/locale/messages.fo.xlf",
+      "da": "apps/about-me/src/locale/messages.da.xlf"
+    }
+  },
   "targets": {
     "build": {
       "executor": "@angular/build:application",
@@ -39,7 +46,8 @@
               "maximumError": "8kB"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "localize": true
         },
         "development": {
           "optimization": false,
@@ -63,6 +71,12 @@
     },
     "test": {
       "executor": "@angular/build:unit-test"
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n",
+      "options": {
+        "buildTarget": "about-me:build"
+      }
     }
   }
 }

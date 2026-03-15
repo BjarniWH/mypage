@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="da" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6018686961415145811" datatype="html">
+        <source>About Me</source>
+        <target>Om Mig</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5576378075872279791" datatype="html">
+        <source> Hello! I&apos;m a passionate developer building amazing web experiences. This particular page is built with Angular and Nx, showcasing a modern setup. </source>
+        <target> Hej! Jeg er en passioneret udvikler, der bygger fantastiske weboplevelser. Denne side er bygget med Angular og Nx, hvilket viser en moderne opsætning. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6691795642062674094" datatype="html">
+        <source>I love clean code, great design, and solving complex problems.</source>
+        <target>Jeg elsker ren kode, godt design og at løse komplekse problemer.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8428168457338231294" datatype="html">
+        <source>Welcome to My World</source>
+        <target>Velkommen til Min Verden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3933396732047440657" datatype="html">
+        <source>Developer. Creator. Explorer.</source>
+        <target>Udvikler. Skaber. Opdagelsesrejsende.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3594239190913126564" datatype="html">
+        <source>More About Me</source>
+        <target>Mere Om Mig</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

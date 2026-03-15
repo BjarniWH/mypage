@@ -6,6 +6,24 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    (function() {
+      // Don't redirect if we're already on a sub-path (other than / or /index.html)
+      const path = window.location.pathname;
+      if (path !== '/' && path !== '/index.html' && !path.endsWith('.github.io/')) {
+        return;
+      }
+
+      const userLang = navigator.language || navigator.userLanguage;
+      const lang = userLang.split('-')[0];
+
+      if (lang === 'fo' && !path.includes('/fo/')) {
+        window.location.href = '/fo/';
+      } else if (lang === 'da' && !path.includes('/da/')) {
+        window.location.href = '/da/';
+      }
+    })();
+  </script>
 </head>
 <body>
   <app-root></app-root>

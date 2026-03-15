@@ -1,10 +1,11 @@
 import { Component, signal, viewChild, ElementRef } from '@angular/core';
 import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
+import { LanguageSwitcherComponent } from '../shared/language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, RouterLinkActive],
+  imports: [RouterLink, RouterOutlet, RouterLinkActive, LanguageSwitcherComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   host: {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="fo" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6018686961415145811" datatype="html">
+        <source>About Me</source>
+        <target>Um Meg</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5576378075872279791" datatype="html">
+        <source> Hello! I&apos;m a passionate developer building amazing web experiences. This particular page is built with Angular and Nx, showcasing a modern setup. </source>
+        <target> Halló! Eg eri ein áhugaður teldustøðingur, ið byggir framúrskarandi vevupplivingar. Hendan síðan er bygd við Angular og Nx, ið vísir eina nýtímans uppseting. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6691795642062674094" datatype="html">
+        <source>I love clean code, great design, and solving complex problems.</source>
+        <target>Eg elski reinan koda, gott snið, og at loysa torgreindar trupulleikar.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8428168457338231294" datatype="html">
+        <source>Welcome to My World</source>
+        <target>Vælkomin til Mín Heim</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3933396732047440657" datatype="html">
+        <source>Developer. Creator. Explorer.</source>
+        <target>Kodaverji. Skapari. Kannari.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3594239190913126564" datatype="html">
+        <source>More About Me</source>
+        <target>Meira Um Meg</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
