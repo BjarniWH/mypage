@@ -8,20 +8,32 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script>
     (function() {
-      // Don't redirect if we're already on a sub-path (other than / or /index.html)
-      const path = window.location.pathname;
-      if (path !== '/' && path !== '/index.html' && !path.endsWith('.github.io/')) {
-        return;
-      }
+      const pathname = window.location.pathname;
+      if (pathname.includes('/fo/') || pathname.includes('/da/')) return;
 
       const userLang = navigator.language || navigator.userLanguage;
-      const lang = userLang.split('-')[0];
+      const langCode = userLang.split('-')[0];
+      
+      const knownLangs = ['fo', 'da'];
+      if (!knownLangs.includes(langCode)) return;
 
-      if (lang === 'fo' && !path.includes('/fo/')) {
-        window.location.href = '/fo/';
-      } else if (lang === 'da' && !path.includes('/da/')) {
-        window.location.href = '/da/';
+      // Detect base path (e.g. "/mypage/" or "/")
+      // We look for everything before the first known route ("about")
+      const segments = pathname.split('/').filter(s => s.length > 0);
+      const knownRoutes = ['about'];
+      let repoIndex = segments.length;
+      for (let i = 0; i < segments.length; i++) {
+        if (knownRoutes.includes(segments[i])) {
+          repoIndex = i;
+          break;
+        }
       }
+      
+      const repoPath = segments.slice(0, repoIndex).join('/');
+      const routePath = segments.slice(repoIndex).join('/');
+      const prefix = repoPath ? '/' + repoPath + '/' : '/';
+      
+      window.location.href = prefix + langCode + '/' + routePath;
     })();
   </script>
 </head>

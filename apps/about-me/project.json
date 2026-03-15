@@ -10,7 +10,7 @@
   "sourceRoot": "apps/about-me/src",
   "prefix": "app",
   "i18n": {
-    "sourceLocale": "en-US",
+    "sourceLocale": "en-GB",
     "locales": {
       "fo": "apps/about-me/src/locale/messages.fo.xlf",
       "da": "apps/about-me/src/locale/messages.da.xlf"
