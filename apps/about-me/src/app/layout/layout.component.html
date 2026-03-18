@@ -1,7 +1,28 @@
-<div class="layout-container">
-  <aside #sidebar class="sidebar" [class.expanded]="isExpanded()">
+<header class="mobile-header">
+  <button class="burger-menu" (click)="toggleSidebar($event)" aria-label="Open Menu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+  <div class="mobile-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+       <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    </svg>
+    <span>MyPage</span>
+  </div>
+</header>
+
+<div class="layout-container" [class.sidebar-expanded]="isExpanded()">
+  @if (isExpanded()) {
+    <div class="sidebar-backdrop" (click)="toggleSidebar($event)"></div>
+  }
+  <aside #sidebar class="sidebar" [class.expanded]="isExpanded()" 
+         (mouseenter)="onSidebarEnter()" 
+         (mouseleave)="onSidebarLeave()">
     <div class="sidebar-top">
-      <button class="menu-toggle" (click)="toggleSidebar()" aria-label="Toggle Menu">
+      <button class="menu-toggle" (click)="toggleSidebar($event)" aria-label="Toggle Menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" y1="12" x2="20" y2="12"></line>
           <line x1="4" y1="6" x2="20" y2="6"></line>
@@ -50,7 +71,7 @@
     </div>
   </aside>
 
-  <div class="content-wrapper">
+  <div class="content-wrapper" [class.content-wrapper-expanded]="isExpanded()">
     <main class="main-content">
       <router-outlet></router-outlet>
     </main>

@@ -1,6 +1,9 @@
-import { Component, signal, viewChild, ElementRef } from '@angular/core';
-import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
+import { Component, signal, viewChild, ElementRef, inject, DestroyRef } from '@angular/core';
+import { RouterLink, RouterOutlet, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { LanguageSwitcherComponent } from '../shared/language-switcher/language-switcher.component';
+import { CelestialService } from '../shared/celestial.service';
+import { filter } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-layout',
@@ -13,10 +16,24 @@ import { LanguageSwitcherComponent } from '../shared/language-switcher/language-
   }
 })
 export class LayoutComponent {
+  private celestialService = inject(CelestialService);
+  private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
+
   isExpanded = signal(false);
   sidebar = viewChild<ElementRef>('sidebar');
 
-  toggleSidebar() {
+  constructor() {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(() => {
+      this.isExpanded.set(false);
+    });
+  }
+
+  toggleSidebar(event?: MouseEvent) {
+    event?.stopPropagation();
     this.isExpanded.update((expanded) => !expanded);
   }
 
@@ -38,5 +55,13 @@ export class LayoutComponent {
          this.isExpanded.set(true);
       }
     }
+  }
+  
+  onSidebarEnter() {
+    this.celestialService.isOverUI.set(true);
+  }
+
+  onSidebarLeave() {
+    this.celestialService.isOverUI.set(false);
   }
 }

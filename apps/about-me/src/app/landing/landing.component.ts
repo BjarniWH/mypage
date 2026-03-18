@@ -1,5 +1,6 @@
-import { Component, ElementRef, viewChild, afterNextRender, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, viewChild, afterNextRender, OnDestroy, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CelestialService } from '../shared/celestial.service';
 
 interface Particle {
   baseX: number;
@@ -35,6 +36,7 @@ interface ShootingStar {
 })
 export class LandingComponent implements OnDestroy {
   canvas = viewChild.required<ElementRef<HTMLCanvasElement>>('particleCanvas');
+  private celestialService = inject(CelestialService);
   
   private ctx!: CanvasRenderingContext2D;
   private animationFrameId?: number;
@@ -64,6 +66,8 @@ export class LandingComponent implements OnDestroy {
     window.removeEventListener('resize', this.resizeCanvas);
     window.removeEventListener('mousemove', this.onMouseMove);
     window.removeEventListener('mouseleave', this.onMouseLeave);
+    window.removeEventListener('mouseout', this.onMouseLeave);
+    window.removeEventListener('blur', this.onMouseLeave);
   }
 
   private onMouseMove = (event: MouseEvent) => {
@@ -85,7 +89,7 @@ export class LandingComponent implements OnDestroy {
 
   private initCanvas() {
     const canvasEl = this.canvas().nativeElement;
-    const ctx = canvasEl.getContext('2d', { alpha: false });
+    const ctx = canvasEl.getContext('2d', { alpha: true });
     if (!ctx) return;
     this.ctx = ctx;
     this.resizeCanvas();
@@ -93,6 +97,8 @@ export class LandingComponent implements OnDestroy {
     window.addEventListener('resize', this.resizeCanvas);
     window.addEventListener('mousemove', this.onMouseMove);
     window.addEventListener('mouseleave', this.onMouseLeave);
+    window.addEventListener('mouseout', this.onMouseLeave);
+    window.addEventListener('blur', this.onMouseLeave);
 
     this.animate();
   }
@@ -153,10 +159,9 @@ export class LandingComponent implements OnDestroy {
   }
 
   private animate = () => {
-    this.ctx.fillStyle = '#05050a';
-    this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-    if (this.mouseX > 0) {
+    if (this.mouseX !== -1000 && !this.celestialService.isOverUI()) {
       const gradient = this.ctx.createRadialGradient(
         this.mouseX, this.mouseY, 0,
         this.mouseX, this.mouseY, 50
@@ -207,7 +212,8 @@ export class LandingComponent implements OnDestroy {
         const dy = this.mouseY - p.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < this.effectRadius) {
+        const isOverUI = this.celestialService.isOverUI();
+        if (!isOverUI && distance < this.effectRadius) {
             const force = (this.effectRadius - distance) / this.effectRadius;
             const pull = force * this.gravityStrength;
             
