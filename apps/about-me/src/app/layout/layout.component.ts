@@ -2,13 +2,14 @@ import { Component, signal, viewChild, ElementRef, inject, DestroyRef } from '@a
 import { RouterLink, RouterOutlet, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { LanguageSwitcherComponent } from '../shared/language-switcher/language-switcher.component';
 import { CelestialService } from '../shared/celestial.service';
+import { CelestialBackgroundDirective } from '../shared/celestial-background/celestial-background';
 import { filter } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, RouterLinkActive, LanguageSwitcherComponent],
+  imports: [RouterLink, RouterOutlet, RouterLinkActive, LanguageSwitcherComponent, CelestialBackgroundDirective],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   host: {

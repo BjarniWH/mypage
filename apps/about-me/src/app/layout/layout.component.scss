@@ -2,19 +2,14 @@
   display: block;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
-  color: #333;
-}
-:host {
-  display: block;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  color: #333;
+  color: #f8fafc; /* Light text for cosmic theme */
 }
 
 .layout-container {
   min-height: 100vh;
   position: relative;
   display: flex;
+  background: transparent;
 }
 
 .mobile-header {
@@ -229,6 +224,7 @@
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+  background: transparent;
 
   @media (max-width: 767px) {
     padding-top: calc(64px + 2rem);
@@ -245,3 +241,5 @@
   font-size: 0.875rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+

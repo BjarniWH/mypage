@@ -14,7 +14,7 @@
   </div>
 </header>
 
-<div class="layout-container" [class.sidebar-expanded]="isExpanded()">
+<div class="layout-container" [class.sidebar-expanded]="isExpanded()" appCelestialBackground>
   @if (isExpanded()) {
     <div class="sidebar-backdrop" (click)="toggleSidebar($event)"></div>
   }
