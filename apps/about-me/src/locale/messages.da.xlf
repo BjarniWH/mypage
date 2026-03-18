@@ -2,21 +2,34 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-GB" target-language="da" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="6018686961415145811" datatype="html">
+      <trans-unit id="about_me_title" datatype="html">
         <source>About Me</source>
-        <target>Om Mig</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
-          <context context-type="linenumber">2,3</context>
-        </context-group>
+        <target>Om mig</target>
       </trans-unit>
-      <trans-unit id="5576378075872279791" datatype="html">
-        <source> Hello! I&apos;m a passionate developer building amazing web experiences. This particular page is built with Angular and Nx, showcasing a modern setup. </source>
-        <target> Hej! Jeg er en passioneret udvikler, der bygger fantastiske weboplevelser. Denne side er bygget med Angular og Nx, hvilket viser en moderne opsætning. </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
-          <context context-type="linenumber">5,6</context>
-        </context-group>
+
+      <trans-unit id="about_me_intro" datatype="html">
+        <source>I’m a 40-year-old software specialist based in Copenhagen, currently working at the City of Copenhagen.</source>
+        <target>Jeg er 40 år og arbejder som software specialist i Københavns Kommune.</target>
+      </trans-unit>
+
+      <trans-unit id="about_me_experience" datatype="html">
+        <source>I’ve spent the past 8 years building digital solutions across several areas. I started out as an RPA developer, where I received two awards for my work. From there, I helped establish the municipality’s voice and chatbot team, followed by a short period working with low-code initiatives as a Technical System Owner, responsible for the technical aspects.</source>
+        <target>De sidste 8 år har jeg arbejdet med udvikling af digitale løsninger på tværs af flere områder. Jeg startede som RPA-udvikler, hvor jeg modtog to priser for mit arbejde. Herefter var jeg med til at opbygge kommunens voice- og chatbot-team, og havde også en kort periode med low-code, hvor jeg fungerede som Technical System Owner med ansvar for de tekniske aspekter.</target>
+      </trans-unit>
+
+      <trans-unit id="about_me_current" datatype="html">
+        <source>Today, I’m part of a team developing our internal AI solution for the City of Copenhagen, based on OpenAI. I’m primarily responsible for the technical frontend, with a strong focus on creating intuitive and user-friendly experiences, mainly using Angular.</source>
+        <target>I dag arbejder jeg på vores interne AI-løsning for Københavns Kommune, baseret på OpenAI. Jeg har primært ansvar for den tekniske frontend med stort fokus på brugeroplevelse (UX), og arbejder hovedsageligt i Angular.</target>
+      </trans-unit>
+
+      <trans-unit id="about_me_education" datatype="html">
+        <source>I hold a Professional Bachelor’s degree in Software Development from KEA (2017).</source>
+        <target>Jeg har en professionsbachelor i Software Development fra KEA (2017).</target>
+      </trans-unit>
+
+      <trans-unit id="about_me_personal" datatype="html">
+        <source>Originally from Argir in the Faroe Islands, I grew up playing handball and football. I now live in Copenhagen, Denmark.</source>
+        <target>Oprindeligt kommer jeg fra Argir på Færøerne, hvor jeg spillede håndbold og fodbold. I dag bor jeg i København.</target>
       </trans-unit>
       <trans-unit id="6691795642062674094" datatype="html">
         <source>I love clean code, great design, and solving complex problems.</source>
@@ -35,7 +48,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3933396732047440657" datatype="html">
-        <source>Developer. Creator. Explorer.</source>
+        <source>Developer. History Nerd. Traveller.</source>
         <target>Udvikler. Skaber. Opdagelsesrejsende.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
