@@ -12,6 +12,8 @@
 
 <!-- nx configuration end-->
 
+<!-- Angular best practices start-->
+
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
 ## TypeScript Best Practices
@@ -68,3 +70,219 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use the `inject()` function instead of constructor injection
 
 <!-- Angular best practices end-->
+
+<!-- i18n best practices start-->
+
+- Always use the `i18n` attribute for translatable content
+- Use the `i18n-` attribute for translatable attributes
+- Use the `i18n-` attribute for translatable attributes
+
+- Generate TypeScript types from translation files
+- Ensure all translation keys are type-safe
+- Prevent runtime missing key errors via compile-time checks
+
+## Advanced i18n Best Practices
+
+- Never concatenate translated strings in code
+
+  - ❌ "Hello " + name
+  - ✅ Use placeholders with ICU format
+
+- Always use ICU Message Format for dynamic content
+
+  - Handles pluralization, gender, and variables correctly
+
+  - Always name variables descriptively in translations
+
+  - ❌ {value}
+  - ✅ {itemCount}
+
+- Keep variable names consistent across all locales
+
+- Avoid dynamic HTML inside i18n blocks
+- Prefer splitting into smaller translatable units
+
+- Define a strict locale strategy
+
+  - Use ISO codes: `fo`, `da`, `en`
+  - Avoid custom or inconsistent locale naming
+
+- Implement a fallback chain
+
+  - Example: `fo → da → en`
+
+- Avoid hardcoding cultural formats
+
+  - Use Intl APIs for:
+    - Dates
+    - Numbers
+    - Currency
+
+- Use structured, hierarchical translation keys
+
+  - Example:
+    auth.login.button.submit
+    dashboard.header.title
+
+- Avoid using raw text as keys
+- Avoid generic keys like "title", "label", "text"
+
+- Version translation files
+
+  - Track breaking changes in keys
+
+- Validate missing translations in CI
+
+  - Failing build if keys are missing is recommended
+
+- Use lazy-loaded translation bundles
+
+  - Load only active locale at runtime
+
+- Always test UI with:
+
+  - Long text (German-style expansion)
+  - Special characters (ð, ø, æ)
+  - Empty/missing translations
+
+- Avoid text in images
+
+  - If unavoidable, provide localized alternatives
+
+- Ensure accessibility is localized
+  - Translate ARIA labels, titles, alt text
+
+<!-- i18n best practices end-->
+
+<!-- i18n personal best practices start-->
+
+## AI / LLM Internationalization
+
+- Store prompt templates per locale
+
+  - Example:
+    - prompts/en.json
+    - prompts/fo.json
+    - prompts/da.json
+
+- Do NOT translate prompts dynamically at runtime
+
+  - Use native-written prompts per language
+
+- Maintain consistent tone per language
+
+  - Faroese: slightly formal
+  - Danish: conversational
+  - English: neutral
+
+- Detect user language early
+
+  - Use:
+    - browser locale
+    - user preference
+    - message language
+
+- Keep system messages localized
+
+  - Not just user-facing responses
+
+- Avoid mixing languages in one response
+
+  - Unless explicitly required
+
+- Log and evaluate outputs per language
+
+  - LLM quality varies significantly across languages
+
+- Use fallback prompts if language not supported
+
+  - Example: fo → da → en
+
+- Validate placeholders across languages
+  - Ensure variables exist in all translations
+
+## Angular i18n Enhancements
+
+- Always use Angular built-in i18n where possible
+- Use `i18n` with meaning and description
+
+  - Example:
+    <button i18n="submit button|Form action">Submit</button>
+
+- Use `i18n-` for all attributes
+
+  - aria-label, title, placeholder, etc.
+
+- Extract messages regularly
+
+  - Keep translation files in sync
+
+- Avoid logic inside translated templates
+- Prefer standalone translation pipes only when necessary
+
+- Ensure all signals-based UI updates are locale-aware
+
+## Advanced Strategies
+
+- Implement locale-aware routing
+
+  - /fo/dashboard
+  - /da/dashboard
+
+- Use domain-based locales if needed
+
+  - fo.example.com
+
+- Track missing translations in production
+- Add feature flags for incomplete locales
+
+<!-- i18n personal best practices end-->
+
+<!-- language best practices start-->
+
+## Language-specific Guidelines (Faroese, Danish, English)
+
+### Faroese (fo)
+
+- Ensure full UTF-8 support (ð, ø, á, í, ó, ú)
+- Do NOT assume English grammar structure
+- Implement custom pluralization rules if framework lacks support
+- Prefer clear and slightly formal tone in UI text
+- Be careful with compound words (common in Faroese)
+
+- Avoid auto-translation without review
+  - Faroese quality varies heavily in machine translation
+
+---
+
+### Danish (da)
+
+- Use simple and direct tone
+- Avoid overly formal language unless required
+- Pluralization:
+
+  - one = singular
+  - other = plural
+
+- Watch for:
+  - compound words
+  - definite suffixes (e.g. "bogen", "huset")
+
+---
+
+### English (en)
+
+- Use as fallback language
+- Prefer neutral/global English (avoid region-specific slang)
+- Keep sentences short and clear for easier translation
+- Avoid idioms (e.g. "hit the ground running")
+
+---
+
+### Cross-language Rules
+
+- Do NOT assume 1:1 translation length
+- Do NOT rely on word order being identical
+- Always design UI to handle text expansion (20–50%)
+
+<!-- language best practices end-->
