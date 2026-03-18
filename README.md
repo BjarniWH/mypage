@@ -3,6 +3,7 @@
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
 ✨ A repository showcasing key [Nx](https://nx.dev) features for Angular monorepos ✨
+
 ## Finish your Nx platform setup
 
 🚀 [Finish setting up your workspace](https://cloud.nx.app/connect/Ywdv0Q06FE) to get faster builds with remote caching, distributed task execution, and self-healing CI. [Learn more about Nx Cloud](https://nx.dev/ci/intro/why-nx-cloud).
@@ -205,6 +206,8 @@ npx nx serve api                               # Serve backend API
 npx nx build shop                              # Build Angular app
 npx nx test data                               # Test a specific library
 npx nx lint feature-products                   # Lint a specific library
+
+npx nx serve about-me
 
 # Running multiple tasks
 npx nx run-many -t build                       # Build all projects

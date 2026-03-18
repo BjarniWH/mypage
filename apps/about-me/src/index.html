@@ -8,14 +8,25 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script>
     (function() {
+      const hostname = window.location.hostname;
+      if (hostname === 'localhost' || hostname === '127.0.0.1') return;
+
       const pathname = window.location.pathname;
-      if (pathname.includes('/fo/') || pathname.includes('/da/')) return;
+      if (pathname.includes('/fo/') || pathname.includes('/da/')) {
+        localStorage.setItem('language-checked', 'true');
+        return;
+      }
+
+      if (localStorage.getItem('language-checked')) return;
 
       const userLang = navigator.language || navigator.userLanguage;
       const langCode = userLang.split('-')[0];
       
       const knownLangs = ['fo', 'da'];
-      if (!knownLangs.includes(langCode)) return;
+      if (!knownLangs.includes(langCode)) {
+        localStorage.setItem('language-checked', 'true');
+        return;
+      }
 
       // Detect base path (e.g. "/mypage/" or "/")
       // We look for everything before the first known route ("about")
@@ -33,6 +44,7 @@
       const routePath = segments.slice(repoIndex).join('/');
       const prefix = repoPath ? '/' + repoPath + '/' : '/';
       
+      localStorage.setItem('language-checked', 'true');
       window.location.href = prefix + langCode + '/' + routePath;
     })();
   </script>
