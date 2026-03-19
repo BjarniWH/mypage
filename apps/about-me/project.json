@@ -56,6 +56,12 @@
           "optimization": false,
           "extractLicenses": false,
           "sourceMap": true
+        },
+        "da": {
+          "localize": ["da"]
+        },
+        "fo": {
+          "localize": ["fo"]
         }
       },
       "defaultConfiguration": "production"
@@ -68,6 +74,12 @@
         },
         "development": {
           "buildTarget": "about-me:build:development"
+        },
+        "da": {
+          "buildTarget": "about-me:build:development,da"
+        },
+        "fo": {
+          "buildTarget": "about-me:build:development,fo"
         }
       },
       "defaultConfiguration": "development"

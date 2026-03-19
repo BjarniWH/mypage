@@ -6,16 +6,11 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
   group: 'pages'
   cancel-in-progress: false
@@ -32,7 +27,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 22 # Note: Node 24 is very new; 22 is the current LTS
           cache: 'npm'
 
       - name: Install dependencies
@@ -43,22 +38,24 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build the about-me app
+        # --localize will trigger the build for all locales defined in project.json
         run: npx nx build about-me --configuration=production --base-href=${{ steps.pages.outputs.base_path }}/
 
       - name: Post-build language shuffling
         run: |
-          # The build puts everything in dist/apps/about-me/browser/[locale]
-          # Angular appends the locale to the base href (e.g. /mypage/en-GB/), so we
-          # must rewrite it back to the root base path before hoisting en-GB to root.
-          BASE_PATH="${{ steps.pages.outputs.base_path }}"
           cd dist/apps/about-me/browser
-          # Fix the base href in en-GB/index.html so assets resolve from the root
-          sed -i "s|<base href=\"${BASE_PATH}/en-GB/\"|<base href=\"${BASE_PATH}/\"|g" en-GB/index.html
+
+          # 1. Hoist en-GB to the root so the main URL works
+          # This makes username.github.io/repo/ serve the English version by default
           cp -r en-GB/* .
-          # We keep fo and da folders as they are
-          rm -rf en-GB
-          # GitHub Pages SPA fix: copy index.html as 404.html so Angular's router
-          # can handle deep links (e.g. /mypage/fo/about) without a real 404.
+
+          # 2. Fix the base href for the root index.html
+          # The build created it as <base href="/repo/en-GB/">, but it's now at /repo/
+          BASE_PATH="${{ steps.pages.outputs.base_path }}"
+          sed -i "s|base href=\"${BASE_PATH}/en-GB/\"|base href=\"${BASE_PATH}/\"|g" index.html
+
+          # 3. Create 404.html files for SPA routing support
+          # This allows username.github.io/repo/da/about to work on refresh
           cp index.html 404.html
           cp da/index.html da/404.html
           cp fo/index.html fo/404.html
@@ -66,7 +63,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # The shuffling happened inside this directory
           path: 'dist/apps/about-me/browser'
 
   deploy:

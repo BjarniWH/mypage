@@ -145,43 +145,6 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 <!-- i18n personal best practices start-->
 
-## AI / LLM Internationalization
-
-- Store prompt templates per locale
-  - Example:
-    - prompts/en.json
-    - prompts/fo.json
-    - prompts/da.json
-
-- Do NOT translate prompts dynamically at runtime
-  - Use native-written prompts per language
-
-- Maintain consistent tone per language
-  - Faroese: slightly formal
-  - Danish: conversational
-  - English: neutral
-
-- Detect user language early
-  - Use:
-    - browser locale
-    - user preference
-    - message language
-
-- Keep system messages localized
-  - Not just user-facing responses
-
-- Avoid mixing languages in one response
-  - Unless explicitly required
-
-- Log and evaluate outputs per language
-  - LLM quality varies significantly across languages
-
-- Use fallback prompts if language not supported
-  - Example: fo → da → en
-
-- Validate placeholders across languages
-  - Ensure variables exist in all translations
-
 ## Angular i18n Enhancements
 
 - Always use Angular built-in i18n where possible
@@ -261,28 +224,3 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Always design UI to handle text expansion (20–50%)
 
 <!-- language best practices end-->
-
-<!-- nx structure start-->
-
-## Nx Workspace Structure
-
-- Use `apps/` for applications
-- Use `libs/` for libraries
-- Keep libraries focused on single responsibility
-- Use `shared/` for common utilities
-- Use `ui/` for UI components
-- Use `data/` for data access
-- Use `features/` for feature modules
-- Use `utils/` for utility functions
-
-- example:
-  - apps/
-    - about-me/
-    - portfolio/
-  - libs/
-    - ui/
-    - data/
-    - features/
-    - utils/
-
-<!-- nx structure end-->
