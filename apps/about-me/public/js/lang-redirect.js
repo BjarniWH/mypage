@@ -1,24 +1,40 @@
 (function () {
+  // 1. Skip for local development
   if (/localhost|127.0.0.1/.test(window.location.hostname)) return;
 
   const path = window.location.pathname;
   const supportedLangs = ['da', 'fo'];
 
-  // 1. Check if we are already in a language folder
-  // This regex looks for /da/ or /fo/ in the URL
-  const isLocalized = supportedLangs.some((lang) => path.includes(`/${lang}/`));
-  if (isLocalized) return;
+  // 2. Check if we've already done a redirect check this session
+  // This prevents the "once you go English, you stay English" bug
+  if (sessionStorage.getItem('lang-redirected')) return;
 
-  // 2. Detect Browser Language
+  // 3. Check if we are already in a localized subfolder
+  const isLocalized = supportedLangs.some(
+    (lang) => path.includes(`/${lang}/`) || path.endsWith(`/${lang}`),
+  );
+
+  if (isLocalized) {
+    sessionStorage.setItem('lang-redirected', 'true');
+    return;
+  }
+
+  // 4. Detect Browser Language
   const userLang = (navigator.language || 'en').split('-')[0];
 
   if (supportedLangs.includes(userLang)) {
-    // 3. Simple Redirect: Just insert the language code
-    // If path is /repo/ it becomes /repo/da/
-    // If path is /repo/about it becomes /repo/da/about
+    // Mark as redirected BEFORE moving to prevent race conditions
+    sessionStorage.setItem('lang-redirected', 'true');
+
+    // 5. Construct the new path
+    // Handles /repo/ -> /repo/da/ or /repo/about -> /repo/da/about
     const newPath = path.endsWith('/')
       ? `${path}${userLang}/`
       : `${path}/${userLang}/`;
+
     window.location.href = newPath;
+  } else {
+    // If language is not supported (e.g., English), still mark as checked
+    sessionStorage.setItem('lang-redirected', 'true');
   }
 })();
