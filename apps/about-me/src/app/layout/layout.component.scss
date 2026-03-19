@@ -50,7 +50,7 @@
   gap: 0.75rem;
   color: white;
   font-weight: 700;
-  
+
   svg {
     stroke: #818cf8;
   }
@@ -62,15 +62,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   z-index: 101;
 }
 
 .sidebar {
   width: 72px;
-  background: rgba(15, 23, 42, 0.1); 
+  background: rgba(15, 23, 42, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -81,8 +78,9 @@
   left: 0;
   bottom: 0;
   height: 100vh;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-              width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: visible;
   z-index: 105;
   box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
@@ -97,15 +95,15 @@
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    
+
     &.expanded {
       transform: translateX(0);
     }
-    
+
     // Hide the desktop menu toggle on mobile inside the sidebar
     // as we use the burger menu in the header.
     .menu-toggle {
-       display: none;
+      display: none;
     }
   }
 }
@@ -126,8 +124,10 @@
   align-items: center;
   justify-content: flex-start;
   color: rgba(255, 255, 255, 0.7);
-  transition: color 0.2s, background-color 0.2s;
-  
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+
   &:hover {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.05);
@@ -164,7 +164,9 @@
   display: flex;
   align-items: center;
   padding: 1rem 1.5rem;
-  transition: color 0.2s, background-color 0.2s;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
   white-space: nowrap;
   overflow: hidden;
 
@@ -188,7 +190,7 @@
   flex-shrink: 0;
 
   &.logo-icon svg {
-    stroke: url(#gradient); 
+    stroke: url(#gradient);
   }
 }
 
@@ -241,5 +243,3 @@
   font-size: 0.875rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-

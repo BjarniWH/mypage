@@ -84,12 +84,10 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 ## Advanced i18n Best Practices
 
 - Never concatenate translated strings in code
-
   - ❌ "Hello " + name
   - ✅ Use placeholders with ICU format
 
 - Always use ICU Message Format for dynamic content
-
   - Handles pluralization, gender, and variables correctly
 
   - Always name variables descriptively in translations
@@ -103,23 +101,19 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Prefer splitting into smaller translatable units
 
 - Define a strict locale strategy
-
   - Use ISO codes: `fo`, `da`, `en`
   - Avoid custom or inconsistent locale naming
 
 - Implement a fallback chain
-
   - Example: `fo → da → en`
 
 - Avoid hardcoding cultural formats
-
   - Use Intl APIs for:
     - Dates
     - Numbers
     - Currency
 
 - Use structured, hierarchical translation keys
-
   - Example:
     auth.login.button.submit
     dashboard.header.title
@@ -128,25 +122,20 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Avoid generic keys like "title", "label", "text"
 
 - Version translation files
-
   - Track breaking changes in keys
 
 - Validate missing translations in CI
-
   - Failing build if keys are missing is recommended
 
 - Use lazy-loaded translation bundles
-
   - Load only active locale at runtime
 
 - Always test UI with:
-
   - Long text (German-style expansion)
   - Special characters (ð, ø, æ)
   - Empty/missing translations
 
 - Avoid text in images
-
   - If unavoidable, provide localized alternatives
 
 - Ensure accessibility is localized
@@ -159,43 +148,35 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 ## AI / LLM Internationalization
 
 - Store prompt templates per locale
-
   - Example:
     - prompts/en.json
     - prompts/fo.json
     - prompts/da.json
 
 - Do NOT translate prompts dynamically at runtime
-
   - Use native-written prompts per language
 
 - Maintain consistent tone per language
-
   - Faroese: slightly formal
   - Danish: conversational
   - English: neutral
 
 - Detect user language early
-
   - Use:
     - browser locale
     - user preference
     - message language
 
 - Keep system messages localized
-
   - Not just user-facing responses
 
 - Avoid mixing languages in one response
-
   - Unless explicitly required
 
 - Log and evaluate outputs per language
-
   - LLM quality varies significantly across languages
 
 - Use fallback prompts if language not supported
-
   - Example: fo → da → en
 
 - Validate placeholders across languages
@@ -205,16 +186,13 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 - Always use Angular built-in i18n where possible
 - Use `i18n` with meaning and description
-
   - Example:
     <button i18n="submit button|Form action">Submit</button>
 
 - Use `i18n-` for all attributes
-
   - aria-label, title, placeholder, etc.
 
 - Extract messages regularly
-
   - Keep translation files in sync
 
 - Avoid logic inside translated templates
@@ -225,12 +203,10 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 ## Advanced Strategies
 
 - Implement locale-aware routing
-
   - /fo/dashboard
   - /da/dashboard
 
 - Use domain-based locales if needed
-
   - fo.example.com
 
 - Track missing translations in production
@@ -260,7 +236,6 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use simple and direct tone
 - Avoid overly formal language unless required
 - Pluralization:
-
   - one = singular
   - other = plural
 
@@ -286,3 +261,28 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Always design UI to handle text expansion (20–50%)
 
 <!-- language best practices end-->
+
+<!-- nx structure start-->
+
+## Nx Workspace Structure
+
+- Use `apps/` for applications
+- Use `libs/` for libraries
+- Keep libraries focused on single responsibility
+- Use `shared/` for common utilities
+- Use `ui/` for UI components
+- Use `data/` for data access
+- Use `features/` for feature modules
+- Use `utils/` for utility functions
+
+- example:
+  - apps/
+    - about-me/
+    - portfolio/
+  - libs/
+    - ui/
+    - data/
+    - features/
+    - utils/
+
+<!-- nx structure end-->
