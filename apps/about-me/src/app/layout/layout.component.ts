@@ -1,7 +1,19 @@
-import { Component, signal, viewChild, ElementRef, inject, DestroyRef } from '@angular/core';
-import { RouterLink, RouterOutlet, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import {
+  Component,
+  signal,
+  viewChild,
+  ElementRef,
+  inject,
+  DestroyRef,
+} from '@angular/core';
+import {
+  RouterLink,
+  RouterOutlet,
+  RouterLinkActive,
+  Router,
+  NavigationEnd,
+} from '@angular/router';
 import { LanguageSwitcherComponent } from '../shared/language-switcher/language-switcher.component';
-import { TranslationService } from '@org/shared/util-i18n';
 import { CelestialService } from '../shared/celestial.service';
 import { CelestialBackgroundDirective } from '../shared/celestial-background/celestial-background';
 import { filter } from 'rxjs/operators';
@@ -10,31 +22,36 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, RouterLinkActive, LanguageSwitcherComponent, CelestialBackgroundDirective],
+  imports: [
+    RouterLink,
+    RouterOutlet,
+    RouterLinkActive,
+    LanguageSwitcherComponent,
+    CelestialBackgroundDirective,
+  ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   host: {
-    '(document:click)': 'onDocumentClick($event)'
-  }
+    '(document:click)': 'onDocumentClick($event)',
+  },
 })
 export class LayoutComponent {
   private celestialService = inject(CelestialService);
   private router = inject(Router);
   private destroyRef = inject(DestroyRef);
-  private translationService = inject(TranslationService);
-  
-  t = this.translationService.t;
 
   isExpanded = signal(false);
   sidebar = viewChild<ElementRef>('sidebar');
 
   constructor() {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      takeUntilDestroyed(this.destroyRef)
-    ).subscribe(() => {
-      this.isExpanded.set(false);
-    });
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe(() => {
+        this.isExpanded.set(false);
+      });
   }
 
   toggleSidebar(event?: MouseEvent) {
@@ -47,21 +64,22 @@ export class LayoutComponent {
     if (!sidebarEl) return;
 
     const clickedInside = sidebarEl.contains(event.target as Node);
-    
+
     if (this.isExpanded() && !clickedInside) {
       // Close if click is outside while expanded
       this.isExpanded.set(false);
     } else if (!this.isExpanded() && clickedInside) {
       // Open if click is inside while collapsed, UNLESS it's on a button or link
       const target = event.target as HTMLElement;
-      const clickedInteractiveElement = target.closest('a') || target.closest('button');
-      
+      const clickedInteractiveElement =
+        target.closest('a') || target.closest('button');
+
       if (!clickedInteractiveElement) {
-         this.isExpanded.set(true);
+        this.isExpanded.set(true);
       }
     }
   }
-  
+
   onSidebarEnter() {
     this.celestialService.isOverUI.set(true);
   }

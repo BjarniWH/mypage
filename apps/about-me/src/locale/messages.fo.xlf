@@ -39,7 +39,7 @@
           <context context-type="linenumber">8,9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8428168457338231294" datatype="html">
+      <trans-unit id="welcome_to_my_page" datatype="html">
         <source>Welcome to My Page</source>
         <target>Vælkomin til mína síðu</target>
         <context-group purpose="location">
@@ -47,7 +47,7 @@
           <context context-type="linenumber">3,4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3933396732047440657" datatype="html">
+      <trans-unit id="landing_subtitle" datatype="html">
         <source>
       Software Developer. Roman/Greek History Enthusiast. Sci-Fi Fan. Traveller.
     </source>
@@ -59,7 +59,7 @@
           <context context-type="linenumber">4,7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3594239190913126564" datatype="html">
+      <trans-unit id="more_about_me_button" datatype="html">
         <source>More About Me</source>
         <target>Meira um meg</target>
         <context-group purpose="location">
