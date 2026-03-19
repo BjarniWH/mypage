@@ -1,4 +1,12 @@
-import { Component, signal, input, HostListener, ElementRef, inject } from '@angular/core';
+import {
+  Component,
+  signal,
+  input,
+  HostListener,
+  ElementRef,
+  inject,
+  LOCALE_ID,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +20,7 @@ import { CommonModule } from '@angular/common';
       >
         <span class="flag">{{ currentFlag() }}</span>
         @if (isExpanded()) {
-        <span class="nav-text">{{ currentLangName() }}</span>
+          <span class="nav-text">{{ currentLangName() }}</span>
         }
         <svg
           class="chevron"
@@ -32,20 +40,20 @@ import { CommonModule } from '@angular/common';
       </button>
 
       @if (isOpen()) {
-      <ul class="dropdown-menu">
-        @for (lang of languages; track lang.code) {
-        <li>
-          <a
-            [href]="getLanguageUrl(lang.langPath)"
-            class="lang-item"
-            [class.active]="lang.code === currentLangCode()"
-          >
-            <span class="flag">{{ lang.flag }}</span>
-            <span class="lang-name">{{ lang.name }}</span>
-          </a>
-        </li>
-        }
-      </ul>
+        <ul class="dropdown-menu">
+          @for (lang of languages; track lang.code) {
+            <li>
+              <a
+                [href]="getLanguageUrl(lang.langPath)"
+                class="lang-item"
+                [class.active]="lang.code === currentLangCode()"
+              >
+                <span class="flag">{{ lang.flag }}</span>
+                <span class="lang-name">{{ lang.name }}</span>
+              </a>
+            </li>
+          }
+        </ul>
       }
     </div>
   `,
@@ -119,8 +127,14 @@ import { CommonModule } from '@angular/common';
       }
 
       @keyframes slideUp {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .lang-item {
@@ -157,6 +171,7 @@ export class LanguageSwitcherComponent {
   isExpanded = input(true);
   isOpen = signal(false);
   private elementRef = inject(ElementRef);
+  private localeId = inject(LOCALE_ID);
 
   languages = [
     { code: 'en-GB', name: 'English', flag: '🇬🇧', langPath: '' },
@@ -177,69 +192,65 @@ export class LanguageSwitcherComponent {
   }
 
   currentLangCode() {
-    // Try to detect from URL first to handle redirects correctly
     const path = window.location.pathname;
-    const knownLangs = ['fo', 'da'];
-    
-    for (const lang of knownLangs) {
-      if (path.includes(`/${lang}/`)) {
-        return lang;
-      }
-    }
-    
-    return (
-      (window as unknown as Record<string, string>)['LOCALE_ID'] || 'en-GB'
-    );
+
+    // 1. Check URL segments (Standard build structure: /repo/da/about)
+    const segments = path.split('/').filter(Boolean);
+    if (segments.includes('da')) return 'da';
+    if (segments.includes('fo')) return 'fo';
+
+    // 2. Fallback to the injected LOCALE_ID from Angular
+    return this.localeId;
   }
 
   getLanguageUrl(targetLangPath: string): string {
     const origin = window.location.origin;
     const pathname = window.location.pathname;
 
-    const segments = pathname.split('/').filter(s => s.length > 0);
+    const segments = pathname.split('/').filter((s) => s.length > 0);
     const knownLangs = ['fo', 'da'];
     let langIndex = -1;
 
     for (let i = 0; i < segments.length; i++) {
-        if (knownLangs.includes(segments[i])) {
-            langIndex = i;
-            break;
-        }
+      if (knownLangs.includes(segments[i])) {
+        langIndex = i;
+        break;
+      }
     }
 
     let repoName = '';
     let routeSegments: string[] = [];
 
     if (langIndex !== -1) {
-        repoName = segments.slice(0, langIndex).join('/');
-        routeSegments = segments.slice(langIndex + 1);
+      repoName = segments.slice(0, langIndex).join('/');
+      routeSegments = segments.slice(langIndex + 1);
     } else {
-        const knownRoutes = ['about'];
-        const lastSegments = segments.filter(s => knownRoutes.includes(s));
-        
-        if (lastSegments.length > 0) {
-            const firstRouteIndex = segments.indexOf(lastSegments[0]);
-            repoName = segments.slice(0, firstRouteIndex).join('/');
-            routeSegments = segments.slice(firstRouteIndex);
-        } else {
-            repoName = segments.join('/');
-            routeSegments = [];
-        }
+      const knownRoutes = ['about'];
+      const lastSegments = segments.filter((s) => knownRoutes.includes(s));
+
+      if (lastSegments.length > 0) {
+        const firstRouteIndex = segments.indexOf(lastSegments[0]);
+        repoName = segments.slice(0, firstRouteIndex).join('/');
+        routeSegments = segments.slice(firstRouteIndex);
+      } else {
+        repoName = segments.join('/');
+        routeSegments = [];
+      }
     }
 
     const repoPrefix = repoName ? `/${repoName}/` : '/';
     const routeSuffix = routeSegments.length > 0 ? routeSegments.join('/') : '';
-    
+
     return `${origin}${repoPrefix}${targetLangPath}${routeSuffix}`;
   }
 
   currentLang() {
-    const code = this.currentLangCode();
-    return (
-      this.languages.find((l) =>
-        code.toLowerCase().startsWith(l.code.toLowerCase().split('-')[0])
-      ) || this.languages[0]
+    const code = this.currentLangCode().toLowerCase();
+    // Find match by code or by the start of the code (e.g., 'en' matches 'en-GB')
+    const match = this.languages.find((l) =>
+      code.startsWith(l.code.toLowerCase().split('-')[0]),
     );
+    return match || this.languages[0]; // Always return English as absolute fallback
   }
 
   currentFlag() {
