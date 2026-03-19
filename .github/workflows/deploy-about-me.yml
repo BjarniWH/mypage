@@ -57,6 +57,11 @@ jobs:
           cp -r en-GB/* .
           # We keep fo and da folders as they are
           rm -rf en-GB
+          # GitHub Pages SPA fix: copy index.html as 404.html so Angular's router
+          # can handle deep links (e.g. /mypage/fo/about) without a real 404.
+          cp index.html 404.html
+          cp da/index.html da/404.html
+          cp fo/index.html fo/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
