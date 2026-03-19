@@ -1,6 +1,7 @@
 import { Component, signal, viewChild, ElementRef, inject, DestroyRef } from '@angular/core';
 import { RouterLink, RouterOutlet, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { LanguageSwitcherComponent } from '../shared/language-switcher/language-switcher.component';
+import { TranslationService } from '@org/shared/util-i18n';
 import { CelestialService } from '../shared/celestial.service';
 import { CelestialBackgroundDirective } from '../shared/celestial-background/celestial-background';
 import { filter } from 'rxjs/operators';
@@ -20,6 +21,9 @@ export class LayoutComponent {
   private celestialService = inject(CelestialService);
   private router = inject(Router);
   private destroyRef = inject(DestroyRef);
+  private translationService = inject(TranslationService);
+  
+  t = this.translationService.t;
 
   isExpanded = signal(false);
   sidebar = viewChild<ElementRef>('sidebar');

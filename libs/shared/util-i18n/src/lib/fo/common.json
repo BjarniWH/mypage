@@ -1,0 +1,25 @@
+{
+  "landing": {
+    "title": "Vælkomin til mína síðu",
+    "subtitle": "Softwaremennari. Søguentusiastur (Rómverjaríki/Grikkaland). Sci-fi fjeppari. Flakkari.",
+    "actions": {
+      "moreAbout": "Meira um meg"
+    }
+  },
+  "about": {
+    "title": "Um meg",
+    "intro": "Eg eri software specialistur í Københavns Kommunu.",
+    "experience": "Seinastu 8 árini havi eg arbeitt við ymiskum talgildum loysnunum. Eg byrjaði sum RPA menningari, har eg vann tvær virðislønir fyri mítt arbeiði. Síðani var eg við til at byggja upp voice- og chatbot-toymið í kommununi, og hevði eisini eina stutta tíð við low-code, har eg hevði leiklutin sum Technical System Owner við ábyrgd av tekniska partinum.",
+    "current": "Í dag arbeiði eg við at menna okkara innanhýsis AI-loysn fyri Københavns Kommunu, grundað á OpenAI. Eg havi serliga ábyrgdina av tekniska frontend-partinum, við stórum denti á góða brúkarauppliving (UX), og arbeiði mest við Angular.",
+    "education": "Eg havi eina PBA í Software Development frá KEA (2017).",
+    "personal": "Upprunaliga eri eg úr Argjum í Føroyum, har eg spældi hondbólt og fótbólt. Nú búgvi eg í Keypmannahavn."
+  },
+  "common": {
+    "nav": {
+      "home": "Heim",
+      "about": "Um meg",
+      "blog": "Blogg",
+      "projects": "Verkætlanir"
+    }
+  }
+}

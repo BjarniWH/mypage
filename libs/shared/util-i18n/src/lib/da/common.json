@@ -1,0 +1,25 @@
+{
+  "landing": {
+    "title": "Velkommen til min side",
+    "subtitle": "Softwareudvikler. Entusiast for romersk/græsk historie. Sci-fi-fan. Opdagelsesrejsende.",
+    "actions": {
+      "moreAbout": "Mere Om Mig"
+    }
+  },
+  "about": {
+    "title": "Om mig",
+    "intro": "Jeg er software specialist i Københavns Kommune.",
+    "experience": "De sidste 8 år har jeg arbejdet med udvikling af digitale løsninger på tværs af flere områder. Jeg startede som RPA-udvikler, hvor jeg modtog to priser for mit arbejde. Herefter var jeg med til at opbygge kommunens voice- og chatbot-team, og havde også en kort periode med low-code, hvor jeg fungerede som Technical System Owner med ansvar for de tekniske aspekter.",
+    "current": "I dag arbejder jeg på vores interne AI-løsning for Københavns Kommune, baseret på OpenAI. Jeg har primært ansvar for den tekniske frontend med stort fokus på brugeroplevelse (UX), og arbejder hovedsageligt i Angular.",
+    "education": "Jeg har en professionsbachelor i Software Development fra KEA (2017).",
+    "personal": "Oprindeligt kommer jeg fra Argir på Færøerne, hvor jeg spillede håndbold og fodbold. I dag bor jeg i København."
+  },
+  "common": {
+    "nav": {
+      "home": "Hjem",
+      "about": "Om mig",
+      "blog": "Blog",
+      "projects": "Projekter"
+    }
+  }
+}

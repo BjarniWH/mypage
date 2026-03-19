@@ -48,11 +48,14 @@ jobs:
       - name: Post-build language shuffling
         run: |
           # The build puts everything in dist/apps/about-me/browser/[locale]
-          # We want the default language (en-GB) at the root, and others in subdirectories.
+          # Angular appends the locale to the base href (e.g. /mypage/en-GB/), so we
+          # must rewrite it back to the root base path before hoisting en-GB to root.
+          BASE_PATH="${{ steps.pages.outputs.base_path }}"
           cd dist/apps/about-me/browser
+          # Fix the base href in en-GB/index.html so assets resolve from the root
+          sed -i "s|<base href=\"${BASE_PATH}/en-GB/\"|<base href=\"${BASE_PATH}/\"|g" en-GB/index.html
           cp -r en-GB/* .
           # We keep fo and da folders as they are
-          # We can remove the en-GB folder to keep it clean, but it doesn't hurt to stay.
           rm -rf en-GB
 
       - name: Upload artifact

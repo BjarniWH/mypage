@@ -1,0 +1,25 @@
+{
+  "landing": {
+    "title": "Welcome to My Page",
+    "subtitle": "Software Developer. Roman/Greek History Enthusiast. Sci-Fi Fan. Traveller.",
+    "actions": {
+      "moreAbout": "More About Me"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "intro": "I’m a software specialist based in Copenhagen, currently working at the City of Copenhagen.",
+    "experience": "I’ve spent the past 8 years building digital solutions across several areas. I started out as an RPA developer, where I received two awards for my work. From there, I helped establish the municipality’s voice and chatbot team, followed by a short period working with low-code initiatives as a Technical System Owner, responsible for the technical aspects.",
+    "current": "Today, I’m part of a team developing our internal AI solution for the City of Copenhagen, based on OpenAI. I’m primarily responsible for the technical frontend, with a strong focus on creating intuitive and user-friendly experiences, mainly using Angular.",
+    "education": "I hold a Professional Bachelor’s degree in Software Development from KEA (2017).",
+    "personal": "Originally from Argir in the Faroe Islands, I grew up playing handball and football. I now live in Copenhagen, Denmark."
+  },
+  "common": {
+    "nav": {
+      "home": "Home",
+      "about": "About Me",
+      "blog": "Blog",
+      "projects": "Projects"
+    }
+  }
+}
