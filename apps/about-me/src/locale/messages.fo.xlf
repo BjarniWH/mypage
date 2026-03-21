@@ -24,7 +24,7 @@
       </trans-unit>
       <trans-unit id="about_title" datatype="html">
         <source>About</source>
-        <target>Um</target>
+        <target>Um meg</target>
       </trans-unit>
       <trans-unit id="about_text_1" datatype="html">
         <source>I am a software specialist based in Copenhagen, currently working with the City of Copenhagen, where I contribute to the development of internal AI solutions built on OpenAI technologies.</source>

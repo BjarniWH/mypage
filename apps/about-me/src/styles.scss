@@ -1,11 +1,37 @@
+:root {
+  --primary-color: #94a3b8;
+  --secondary-color: #cbd5e1;
+  --background-color: #09090b;
+  --text-color: #f8fafc;
+
+  --font-base: 1rem;
+  --font-lg: 1.25rem;
+  --font-sm: 0.875rem;
+
+  @media (max-width: 768px) {
+    --font-base: 0.9rem;
+    --font-lg: 1.1rem;
+    --font-sm: 0.8rem;
+  }
+}
+
 html {
   background-color: #09090b;
   scroll-behavior: smooth;
+  font-size: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 body {
   margin: 0;
   padding: 0;
   background-color: transparent;
-  color: #f8fafc;
+  color: var(--primary-color);
   min-height: 100vh;
+}
+p {
+  font-size: var(--font-base);
+  line-height: 1.5;
 }

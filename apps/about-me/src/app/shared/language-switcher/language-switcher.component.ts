@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
         (click)="toggleDropdown($event)"
         [attr.aria-expanded]="isOpen()"
       >
-        <span class="flag">{{ currentFlag() }}</span>
+        <span class="flag" [class]="currentFlag()"></span>
         @if (isExpanded()) {
           <span class="nav-text">{{ currentLangName() }}</span>
         }
@@ -48,7 +48,7 @@ import { CommonModule } from '@angular/common';
                 class="lang-item"
                 [class.active]="lang.code === currentLangCode()"
               >
-                <span class="flag">{{ lang.flag }}</span>
+                <span class="flag" [class]="lang.flag"></span>
                 <span class="lang-name">{{ lang.name }}</span>
               </a>
             </li>
@@ -174,9 +174,9 @@ export class LanguageSwitcherComponent {
   private localeId = inject(LOCALE_ID);
 
   languages = [
-    { code: 'en-GB', name: 'English', flag: '🇬🇧', langPath: '' },
-    { code: 'fo', name: 'Føroyskt', flag: '🇫🇴', langPath: 'fo/' },
-    { code: 'da', name: 'Dansk', flag: '🇩🇰', langPath: 'da/' },
+    { code: 'en-GB', name: 'English', flag: 'fi fi-gb', langPath: '' },
+    { code: 'fo', name: 'Føroyskt', flag: 'fi fi-fo', langPath: 'fo/' },
+    { code: 'da', name: 'Dansk', flag: 'fi fi-dk', langPath: 'da/' },
   ];
 
   @HostListener('document:click', ['$event'])
