@@ -2,70 +2,173 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-GB" target-language="da" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="about_me_title" datatype="html">
-        <source>About Me</source>
-        <target>Om mig</target>
+      <trans-unit id="hero_badge" datatype="html">
+        <source>Software Specialist &amp; AI Consultant</source>
+        <target>Software Specialist &amp; AI Konsulent</target>
       </trans-unit>
-
-      <trans-unit id="about_me_intro" datatype="html">
-        <source>I’m a 40-year-old software specialist based in Copenhagen, currently working at the City of Copenhagen.</source>
-        <target>Jeg er 40 år og arbejder som software specialist i Københavns Kommune.</target>
+      <trans-unit id="hero_title" datatype="html">
+        <source>Building the future of internal tools with AI &amp; Angular</source>
+        <target>Jeg bygger fremtidens interne værktøjer med AI &amp; Angular</target>
       </trans-unit>
-
-      <trans-unit id="about_me_experience" datatype="html">
-        <source>I’ve spent the past 8 years building digital solutions across several areas. I started out as an RPA developer, where I received two awards for my work. From there, I helped establish the municipality’s voice and chatbot team, followed by a short period working with low-code initiatives as a Technical System Owner, responsible for the technical aspects.</source>
-        <target>De sidste 8 år har jeg arbejdet med udvikling af digitale løsninger på tværs af flere områder. Jeg startede som RPA-udvikler, hvor jeg modtog to priser for mit arbejde. Herefter var jeg med til at opbygge kommunens voice- og chatbot-team, og havde også en kort periode med low-code, hvor jeg fungerede som Technical System Owner med ansvar for de tekniske aspekter.</target>
+      <trans-unit id="hero_description_1" datatype="html">
+        <source>I build AI-powered internal tools and Angular applications that help organizations streamline workflows, reduce manual work, and improve how teams operate.</source>
+        <target>Jeg bygger AI-drevne interne værktøjer og Angular-applikationer, der hjælper organisationer med at strømline arbejdsgange, reducere manuelt arbejde og forbedre, hvordan teams fungerer.</target>
       </trans-unit>
-
-      <trans-unit id="about_me_current" datatype="html">
-        <source>Today, I’m part of a team developing our internal AI solution for the City of Copenhagen, based on OpenAI. I’m primarily responsible for the technical frontend, with a strong focus on creating intuitive and user-friendly experiences, mainly using Angular.</source>
-        <target>I dag arbejder jeg på vores interne AI-løsning for Københavns Kommune, baseret på OpenAI. Jeg har primært ansvar for den tekniske frontend med stort fokus på brugeroplevelse (UX), og arbejder hovedsageligt i Angular.</target>
+      <trans-unit id="hero_description_2" datatype="html">
+        <source>With a strong focus on usability and real-world adoption, I create solutions that are not only technically solid, but intuitive and genuinely useful for the people who rely on them every day.</source>
+        <target>Med et stærkt fokus på brugbarhed og reel adoption skaber jeg løsninger, der ikke kun er teknisk solide, men også intuitive og virkelig nyttige for de mennesker, der er afhængige af dem i hverdagen.</target>
       </trans-unit>
-
-      <trans-unit id="about_me_education" datatype="html">
-        <source>I hold a Professional Bachelor’s degree in Software Development from KEA (2017).</source>
-        <target>Jeg har en professionsbachelor i Software Development fra KEA (2017).</target>
+      <trans-unit id="get_in_touch" datatype="html">
+        <source>Get in Touch</source>
+        <target>Kontakt mig</target>
       </trans-unit>
-
-      <trans-unit id="about_me_personal" datatype="html">
-        <source>Originally from Argir in the Faroe Islands, I grew up playing handball and football. I now live in Copenhagen, Denmark.</source>
-        <target>Oprindeligt kommer jeg fra Argir på Færøerne, hvor jeg spillede håndbold og fodbold. I dag bor jeg i København.</target>
+      <trans-unit id="about_title" datatype="html">
+        <source>About</source>
+        <target>Om</target>
       </trans-unit>
-      <trans-unit id="6691795642062674094" datatype="html">
-        <source>I love clean code, great design, and solving complex problems.</source>
-        <target>Jeg elsker ren kode, godt design og at løse komplekse problemer.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
-          <context context-type="linenumber">8,9</context>
-        </context-group>
+      <trans-unit id="about_text_1" datatype="html">
+        <source>I am a software specialist based in Copenhagen, currently working with the City of Copenhagen, where I contribute to the development of internal AI solutions built on OpenAI technologies.</source>
+        <target>Jeg er software specialist baseret i København og arbejder i øjeblikket hos Københavns Kommune, hvor jeg bidrager til udviklingen af interne AI-løsninger baseret på OpenAI-teknologier.</target>
       </trans-unit>
-      <trans-unit id="welcome_to_my_page" datatype="html">
-        <source>Welcome to My Page</source>
-        <target>Velkommen til min side</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
-          <context context-type="linenumber">3,4</context>
-        </context-group>
+      <trans-unit id="about_text_2" datatype="html">
+        <source>My primary focus is frontend development using Angular, with a strong emphasis on user experience, accessibility, and performance. I specialize in building internal tools that simplify complex workflows and make it easier for non-technical users to interact with advanced systems.</source>
+        <target>Mit primære fokus er frontend-udvikling med Angular, med stor vægt på brugeroplevelse (UX), tilgængelighed og performance. Jeg specialiserer mig i at bygge interne værktøjer, der forenkler komplekse arbejdsgange og gør det lettere for ikke-tekniske brugere at interagere med avancerede systemer.</target>
       </trans-unit>
-      <trans-unit id="landing_subtitle" datatype="html">
-        <source>
-      Software Developer. Roman/Greek History Enthusiast. Sci-Fi Fan. Traveller.
-    </source>
-        <target>
-      Softwareudvikler. Entusiast for romersk/græsk historie. Sci-fi-fan. Opdagelsesrejsende.
-    </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
-          <context context-type="linenumber">4,7</context>
-        </context-group>
+      <trans-unit id="expertise_title" datatype="html">
+        <source>Experience &amp; Expertise</source>
+        <target>Erfaring &amp; Ekspertise</target>
       </trans-unit>
-      <trans-unit id="more_about_me_button" datatype="html">
-        <source>More About Me</source>
-        <target>Mere Om Mig</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
-          <context context-type="linenumber">14,15</context>
-        </context-group>
+      <trans-unit id="expertise_intro" datatype="html">
+        <source>Over the past 8 years, I have worked across multiple areas of software development, giving me a broad and practical understanding of how digital solutions are designed, built, and adopted in real organizations.</source>
+        <target>Gennem de sidste 8 år har jeg arbejdet på tværs af adskillige områder inden for softwareudvikling, hvilket har givet mig en bred og praktisk forståelse for, hvordan digitale løsninger designes, bygges og implementeres i virkelige organisationer.</target>
+      </trans-unit>
+      <trans-unit id="exp_ai_title" datatype="html">
+        <source>AI-powered internal tools</source>
+        <target>AI-drevne interne værktøjer</target>
+      </trans-unit>
+      <trans-unit id="exp_ai_text" datatype="html">
+        <source>Designing and building AI-assisted solutions that support employees in their daily work and decision-making.</source>
+        <target>Design og udvikling af AI-assisterede løsninger, der støtter medarbejdere i deres daglige arbejde og beslutningstagen.</target>
+      </trans-unit>
+      <trans-unit id="exp_angular_title" datatype="html">
+        <source>Angular applications</source>
+        <target>Angular-applikationer</target>
+      </trans-unit>
+      <trans-unit id="exp_angular_text" datatype="html">
+        <source>Developing scalable, maintainable frontend applications with a focus on performance and usability.</source>
+        <target>Udvikling af skalerbare og vedligeholdelsesvenlige frontend-løsninger med fokus på performance og brugervenlighed.</target>
+      </trans-unit>
+      <trans-unit id="exp_automation_title" datatype="html">
+        <source>Automation (RPA)</source>
+        <target>Automatisering (RPA)</target>
+      </trans-unit>
+      <trans-unit id="exp_automation_text" datatype="html">
+        <source>Building solutions that reduce manual work and improve operational efficiency.</source>
+        <target>Udvikling af løsninger, der reducerer manuelt arbejde og øger den operationelle effektivitet.</target>
+      </trans-unit>
+      <trans-unit id="exp_conversational_title" datatype="html">
+        <source>Conversational interfaces</source>
+        <target>Konversationelle brugerflader</target>
+      </trans-unit>
+      <trans-unit id="exp_conversational_text" datatype="html">
+        <source>Helping establish and develop chatbot and voice-based solutions for internal use.</source>
+        <target>Hjælp til etablering og udvikling af chatbot- og stemme-baserede løsninger til intern brug.</target>
+      </trans-unit>
+      <trans-unit id="exp_technical_title" datatype="html">
+        <source>Technical ownership</source>
+        <target>Teknisk ejerskab</target>
+      </trans-unit>
+      <trans-unit id="exp_technical_text" datatype="html">
+        <source>Experience as a Technical System Owner, responsible for the technical foundation and direction of low-code platforms.</source>
+        <target>Erfaring som Technical System Owner med ansvar for det tekniske fundament og den tekniske kurs for low-code platforme.</target>
+      </trans-unit>
+      <trans-unit id="approach_title" datatype="html">
+        <source>Approach</source>
+        <target>Tilgang</target>
+      </trans-unit>
+      <trans-unit id="approach_intro" datatype="html">
+        <source>I focus on building solutions that solve real problems—not just technically, but from a user perspective.</source>
+        <target>Jeg fokuserer på at bygge løsninger, der løser reelle problemer – ikke kun teknisk, men set fra en brugers perspektiv.</target>
+      </trans-unit>
+      <trans-unit id="approach_item_1" datatype="html">
+        <source>Understanding how people actually work</source>
+        <target>Forståelse for hvordan folk rent faktisk arbejder</target>
+      </trans-unit>
+      <trans-unit id="approach_item_2" datatype="html">
+        <source>Reducing complexity wherever possible</source>
+        <target>Reducering af kompleksitet hvor det er muligt</target>
+      </trans-unit>
+      <trans-unit id="approach_item_3" datatype="html">
+        <source>Designing for clarity, speed, and usability</source>
+        <target>Design for klarhed, hastighed og brugervenlighed</target>
+      </trans-unit>
+      <trans-unit id="approach_item_4" datatype="html">
+        <source>Ensuring solutions are adopted—not ignored</source>
+        <target>Sikre at løsningerne bliver brugt – ikke ignoreret</target>
+      </trans-unit>
+      <trans-unit id="services_title" datatype="html">
+        <source>Services</source>
+        <target>Services</target>
+      </trans-unit>
+      <trans-unit id="services_intro" datatype="html">
+        <source>I work with organizations that want to modernize their internal systems and workflows.</source>
+        <target>Jeg arbejder med organisationer, der ønsker at modernisere deres interne systemer og arbejdsgange.</target>
+      </trans-unit>
+      <trans-unit id="service_1" datatype="html">
+        <source>AI-powered internal tools (OpenAI-based)</source>
+        <target>AI-drevne interne værktøjer (OpenAI-baseret)</target>
+      </trans-unit>
+      <trans-unit id="service_2" datatype="html">
+        <source>Custom Angular applications</source>
+        <target>Skræddersyede Angular-applikationer</target>
+      </trans-unit>
+      <trans-unit id="service_3" datatype="html">
+        <source>Internal dashboards and workflow systems</source>
+        <target>Interne dashboards og workflow-systemer</target>
+      </trans-unit>
+      <trans-unit id="service_4" datatype="html">
+        <source>Chatbots and knowledge assistants</source>
+        <target>Chatbots og vidensassistenter</target>
+      </trans-unit>
+      <trans-unit id="service_5" datatype="html">
+        <source>Process automation and optimization</source>
+        <target>Procesautomatisering og optimering</target>
+      </trans-unit>
+      <trans-unit id="cta_title" datatype="html">
+        <source>Ready to modernize your workflows?</source>
+        <target>Klar til at modernisere jeres arbejdsgange?</target>
+      </trans-unit>
+      <trans-unit id="cta_text_1" datatype="html">
+        <source>I’m currently available for freelance projects and collaborations.</source>
+        <target>Jeg er i øjeblikket tilgængelig for freelance-projekter og samarbejder.</target>
+      </trans-unit>
+      <trans-unit id="cta_text_2" datatype="html">
+        <source>If you’re looking to improve internal workflows, explore AI solutions, or build modern internal tools—feel free to reach out.</source>
+        <target>Hvis I ønsker at forbedre interne arbejdsgange, udforske AI-løsninger eller bygge moderne interne værktøjer – så tøv ikke med at række ud.</target>
+      </trans-unit>
+      <trans-unit id="cta_btn" datatype="html">
+        <source>Reach out</source>
+        <target>Kontakt mig</target>
+      </trans-unit>
+      <trans-unit id="nav_about" datatype="html">
+        <source>About</source>
+        <target>Om</target>
+      </trans-unit>
+      <trans-unit id="nav_experience" datatype="html">
+        <source>Experience</source>
+        <target>Erfaring</target>
+      </trans-unit>
+      <trans-unit id="nav_approach" datatype="html">
+        <source>Approach</source>
+        <target>Tilgang</target>
+      </trans-unit>
+      <trans-unit id="nav_services" datatype="html">
+        <source>Services</source>
+        <target>Ydelser</target>
+      </trans-unit>
+      <trans-unit id="nav_contact" datatype="html">
+        <source>Contact</source>
+        <target>Kontakt</target>
       </trans-unit>
     </body>
   </file>

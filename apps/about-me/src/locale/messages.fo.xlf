@@ -2,70 +2,173 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-GB" target-language="fo" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="about_me_title" datatype="html">
-        <source>About Me</source>
-        <target>Um meg</target>
+      <trans-unit id="hero_badge" datatype="html">
+        <source>Software Specialist &amp; AI Consultant</source>
+        <target>Software Specialistur &amp; AI Konsulentur</target>
       </trans-unit>
-
-      <trans-unit id="about_me_intro" datatype="html">
-        <source>I’m a 40-year-old software specialist based in Copenhagen, currently working at the City of Copenhagen.</source>
-        <target>Eg eri 40 ára gamal og arbeiði sum software specialistur í Københavns Kommunu.</target>
+      <trans-unit id="hero_title" datatype="html">
+        <source>Building the future of internal tools with AI &amp; Angular</source>
+        <target>Eg byggi framtíðina av innanhýsis tólum við AI &amp; Angular</target>
       </trans-unit>
-
-      <trans-unit id="about_me_experience" datatype="html">
-        <source>I’ve spent the past 8 years building digital solutions across several areas. I started out as an RPA developer, where I received two awards for my work. From there, I helped establish the municipality’s voice and chatbot team, followed by a short period working with low-code initiatives as a Technical System Owner, responsible for the technical aspects.</source>
-        <target>Seinastu 8 árini havi eg arbeitt við ymiskum talgildum loysnunum. Eg byrjaði sum RPA menningari, har eg vann tvær virðislønir fyri mítt arbeiði. Síðani var eg við til at byggja upp voice- og chatbot-toymið í kommununi, og hevði eisini eina stutta tíð við low-code, har eg hevði leiklutin sum Technical System Owner við ábyrgd av tekniska partinum.</target>
+      <trans-unit id="hero_description_1" datatype="html">
+        <source>I build AI-powered internal tools and Angular applications that help organizations streamline workflows, reduce manual work, and improve how teams operate.</source>
+        <target>Eg byggi AI-drivin innanhýsis tól og Angular-forrit, ið hjálpa felagsskapum at smidliggera arbeiðsgongdir, minka um manuelt arbeiði og betra um hvussu toymi starvast.</target>
       </trans-unit>
-
-      <trans-unit id="about_me_current" datatype="html">
-        <source>Today, I’m part of a team developing our internal AI solution for the City of Copenhagen, based on OpenAI. I’m primarily responsible for the technical frontend, with a strong focus on creating intuitive and user-friendly experiences, mainly using Angular.</source>
-        <target>Í dag arbeiði eg við at menna okkara innanhýsis AI-loysn fyri Københavns Kommunu, grundað á OpenAI. Eg havi serliga ábyrgdina av tekniska frontend-partinum, við stórum denti á góða brúkarauppliving (UX), og arbeiði mest við Angular.</target>
+      <trans-unit id="hero_description_2" datatype="html">
+        <source>With a strong focus on usability and real-world adoption, I create solutions that are not only technically solid, but intuitive and genuinely useful for the people who rely on them every day.</source>
+        <target>Við stórum denti á brúkaravinsemi og veruliga nýtslu, skapi eg loysnir, ið ikki bert eru tekniskt góðar, men eisini løtt at brúka og veruliga gagnlig fyri tey fólkini, ið brúka tey hvønn dag.</target>
       </trans-unit>
-
-      <trans-unit id="about_me_education" datatype="html">
-        <source>I hold a Professional Bachelor’s degree in Software Development from KEA (2017).</source>
-        <target>Eg havi eina PBA í Software Development frá KEA (2017).</target>
+      <trans-unit id="get_in_touch" datatype="html">
+        <source>Get in Touch</source>
+        <target>Set teg í samband</target>
       </trans-unit>
-
-      <trans-unit id="about_me_personal" datatype="html">
-        <source>Originally from Argir in the Faroe Islands, I grew up playing handball and football. I now live in Copenhagen, Denmark.</source>
-        <target>Upprunaliga eri eg úr Argjum í Føroyum, har eg spældi hondbólt og fótbólt. Nú búgvi eg í Keypmannahavn.</target>
+      <trans-unit id="about_title" datatype="html">
+        <source>About</source>
+        <target>Um</target>
       </trans-unit>
-      <trans-unit id="6691795642062674094" datatype="html">
-        <source>I love clean code, great design, and solving complex problems.</source>
-        <target>Eg elski reinan koda, gott snið, og at loysa torgreindar trupulleikar.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/about/about.component.html</context>
-          <context context-type="linenumber">8,9</context>
-        </context-group>
+      <trans-unit id="about_text_1" datatype="html">
+        <source>I am a software specialist based in Copenhagen, currently working with the City of Copenhagen, where I contribute to the development of internal AI solutions built on OpenAI technologies.</source>
+        <target>Eg eri software specialistur í Keypmannahavn, og arbeiði í løtuni fyri Keypmannahavnar Kommunu, har eg eri við til at menna innanhýsis AI-loysnir grundaðar á OpenAI tøkni.</target>
       </trans-unit>
-      <trans-unit id="welcome_to_my_page" datatype="html">
-        <source>Welcome to My Page</source>
-        <target>Vælkomin til mína síðu</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
-          <context context-type="linenumber">3,4</context>
-        </context-group>
+      <trans-unit id="about_text_2" datatype="html">
+        <source>My primary focus is frontend development using Angular, with a strong emphasis on user experience, accessibility, and performance. I specialize in building internal tools that simplify complex workflows and make it easier for non-technical users to interact with advanced systems.</source>
+        <target>Mítt høvuðsøki er frontend-menning við Angular, við stórum denti á brúkarauppliving (UX), atkomiligheit (accessibility) og avrik. Eg serstaki meg í at byggja innanhýsis tól, ið einfalda torgreindar arbeiðsgongdir og gera tað lættari hjálpa brúkarum at nýta torgreind skipanir.</target>
       </trans-unit>
-      <trans-unit id="landing_subtitle" datatype="html">
-        <source>
-      Software Developer. Roman/Greek History Enthusiast. Sci-Fi Fan. Traveller.
-    </source>
-        <target>
-      Softwaremennari. Søguentusiastur (Rómverjaríki/Grikkaland). Sci-fi fjeppari. Flakkari.
-    </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
-          <context context-type="linenumber">4,7</context>
-        </context-group>
+      <trans-unit id="expertise_title" datatype="html">
+        <source>Experience &amp; Expertise</source>
+        <target>Royndir &amp; Serleiki</target>
       </trans-unit>
-      <trans-unit id="more_about_me_button" datatype="html">
-        <source>More About Me</source>
-        <target>Meira um meg</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">apps/about-me/src/app/landing/landing.component.html</context>
-          <context context-type="linenumber">14,15</context>
-        </context-group>
+      <trans-unit id="expertise_intro" datatype="html">
+        <source>Over the past 8 years, I have worked across multiple areas of software development, giving me a broad and practical understanding of how digital solutions are designed, built, and adopted in real organizations.</source>
+        <target>Seinastu 8 árini havi eg arbeitt við nógvum ymiskum innan softwaremenning, ið hevur givið mær eina breiða og praktiska fatan av, hvussu talgildar loysnir verða sniðgivnar, bygdar og tiknar í nýtslu í veruligum felagsskapum.</target>
+      </trans-unit>
+      <trans-unit id="exp_ai_title" datatype="html">
+        <source>AI-powered internal tools</source>
+        <target>AI-drivin innanhýsis tól</target>
+      </trans-unit>
+      <trans-unit id="exp_ai_text" datatype="html">
+        <source>Designing and building AI-assisted solutions that support employees in their daily work and decision-making.</source>
+        <target>Sniðgevi og byggi AI-stuðlaðar loysnir, ið hjálpa starvsfólkum í teirra dagliga arbeiði og við atliti at avgerðum.</target>
+      </trans-unit>
+      <trans-unit id="exp_angular_title" datatype="html">
+        <source>Angular applications</source>
+        <target>Angular-forrit</target>
+      </trans-unit>
+      <trans-unit id="exp_angular_text" datatype="html">
+        <source>Developing scalable, maintainable frontend applications with a focus on performance and usability.</source>
+        <target>Menni skaládar og viðlíkahaldsligar frontend-loysnir við denti á avrik og brúkaravinsemi.</target>
+      </trans-unit>
+      <trans-unit id="exp_automation_title" datatype="html">
+        <source>Automation (RPA)</source>
+        <target>Sjálvvirkni (RPA)</target>
+      </trans-unit>
+      <trans-unit id="exp_automation_text" datatype="html">
+        <source>Building solutions that reduce manual work and improve operational efficiency.</source>
+        <target>Byggi loysnir, ið minka um manuelt arbeiði og økja um rakstrarliga effektivitetin.</target>
+      </trans-unit>
+      <trans-unit id="exp_conversational_title" datatype="html">
+        <source>Conversational interfaces</source>
+        <target>Samrøðu-atkomur</target>
+      </trans-unit>
+      <trans-unit id="exp_conversational_text" datatype="html">
+        <source>Helping establish and develop chatbot and voice-based solutions for internal use.</source>
+        <target>Hjálpi til við at stovna og menna teldu- og reyst-loysnir til innanhýsis nýtslu.</target>
+      </trans-unit>
+      <trans-unit id="exp_technical_title" datatype="html">
+        <source>Technical ownership</source>
+        <target>Tekniskt eigaraskap</target>
+      </trans-unit>
+      <trans-unit id="exp_technical_text" datatype="html">
+        <source>Experience as a Technical System Owner, responsible for the technical foundation and direction of low-code platforms.</source>
+        <target>Royndir sum Tekniska Skipanseigari (Technical System Owner), við ábyrgd av tekniska grundlagnum og kósini fyri low-code pallar.</target>
+      </trans-unit>
+      <trans-unit id="approach_title" datatype="html">
+        <source>Approach</source>
+        <target>Atferð</target>
+      </trans-unit>
+      <trans-unit id="approach_intro" datatype="html">
+        <source>I focus on building solutions that solve real problems—not just technically, but from a user perspective.</source>
+        <target>Eg leggi dent á at byggja loysnir, ið loysa veruligar trupulleikar — ikki bert tekniskt, men eisini út frá einum brúkarasjónarhorni.</target>
+      </trans-unit>
+      <trans-unit id="approach_item_1" datatype="html">
+        <source>Understanding how people actually work</source>
+        <target>Skilja hvussu fólk veruliga arbeiða</target>
+      </trans-unit>
+      <trans-unit id="approach_item_2" datatype="html">
+        <source>Reducing complexity wherever possible</source>
+        <target>Minka um torgreidleika har tað ber til</target>
+      </trans-unit>
+      <trans-unit id="approach_item_3" datatype="html">
+        <source>Designing for clarity, speed, and usability</source>
+        <target>Sniðgeva fyri greidheit, skjótleika og brúkaravinsemi</target>
+      </trans-unit>
+      <trans-unit id="approach_item_4" datatype="html">
+        <source>Ensuring solutions are adopted—not ignored</source>
+        <target>Tryggja at loysnirnar verða brúktar — ikki ignoreraðar</target>
+      </trans-unit>
+      <trans-unit id="services_title" datatype="html">
+        <source>Services</source>
+        <target>Tænastur</target>
+      </trans-unit>
+      <trans-unit id="services_intro" datatype="html">
+        <source>I work with organizations that want to modernize their internal systems and workflows.</source>
+        <target>Eg arbeiði við felagsskapum, ið ynskja at nútímansgera sínar innanhýsis skipanir og arbeiðsgongdir.</target>
+      </trans-unit>
+      <trans-unit id="service_1" datatype="html">
+        <source>AI-powered internal tools (OpenAI-based)</source>
+        <target>AI-drivin innanhýsis tól (OpenAI-grundað)</target>
+      </trans-unit>
+      <trans-unit id="service_2" datatype="html">
+        <source>Custom Angular applications</source>
+        <target>Sergjørd Angular-forrit</target>
+      </trans-unit>
+      <trans-unit id="service_3" datatype="html">
+        <source>Internal dashboards and workflow systems</source>
+        <target>Innanhýsis dashboard og arbeiðsgongda-skipanir</target>
+      </trans-unit>
+      <trans-unit id="service_4" datatype="html">
+        <source>Chatbots and knowledge assistants</source>
+        <target>Chatbot og vitanar-assistentar</target>
+      </trans-unit>
+      <trans-unit id="service_5" datatype="html">
+        <source>Process automation and optimization</source>
+        <target>Tilgongdar-sjálvvirkni og optimering</target>
+      </trans-unit>
+      <trans-unit id="cta_title" datatype="html">
+        <source>Ready to modernize your workflows?</source>
+        <target>Klár/ur at nútímansgera tínar arbeiðsgongdir?</target>
+      </trans-unit>
+      <trans-unit id="cta_text_1" datatype="html">
+        <source>I’m currently available for freelance projects and collaborations.</source>
+        <target>Eg eri í løtuni tøkur fyri freelancer-verkætlanir og samstørv.</target>
+      </trans-unit>
+      <trans-unit id="cta_text_2" datatype="html">
+        <source>If you’re looking to improve internal workflows, explore AI solutions, or build modern internal tools—feel free to reach out.</source>
+        <target>Um tit ynskja at betra um innanhýsis arbeiðsgongdir, kanna AI-loysnir ella byggja nútímans innanhýsis tól — set teg endiliga í samband.</target>
+      </trans-unit>
+      <trans-unit id="cta_btn" datatype="html">
+        <source>Reach out</source>
+        <target>Set teg í samband</target>
+      </trans-unit>
+      <trans-unit id="nav_about" datatype="html">
+        <source>About</source>
+        <target>Um</target>
+      </trans-unit>
+      <trans-unit id="nav_experience" datatype="html">
+        <source>Experience</source>
+        <target>Royndir</target>
+      </trans-unit>
+      <trans-unit id="nav_approach" datatype="html">
+        <source>Approach</source>
+        <target>Atferð</target>
+      </trans-unit>
+      <trans-unit id="nav_services" datatype="html">
+        <source>Services</source>
+        <target>Tænastur</target>
+      </trans-unit>
+      <trans-unit id="nav_contact" datatype="html">
+        <source>Contact</source>
+        <target>Samband</target>
       </trans-unit>
     </body>
   </file>

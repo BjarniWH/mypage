@@ -1,10 +1,11 @@
 html {
-  background-color: #09090b; 
+  background-color: #09090b;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
   padding: 0;
-  background-color: transparent; 
+  background-color: transparent;
   color: #f8fafc;
   min-height: 100vh;
 }

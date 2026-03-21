@@ -76,6 +76,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Always use the `i18n` attribute for translatable content
 - Use the `i18n-` attribute for translatable attributes
 - Use the `i18n-` attribute for translatable attributes
+- Do NOT import "@angular/localize/init" directly. It should be added as a polyfill in the project.json file.
 
 - Generate TypeScript types from translation files
 - Ensure all translation keys are type-safe
