@@ -1,4 +1,12 @@
-import { Directive, ElementRef, inject, OnDestroy, Renderer2, afterNextRender, NgZone } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  inject,
+  OnDestroy,
+  Renderer2,
+  afterNextRender,
+  NgZone,
+} from '@angular/core';
 import { CelestialService } from '../celestial.service';
 
 interface Particle {
@@ -47,18 +55,18 @@ export class CelestialBackgroundDirective implements OnDestroy {
   private canvas!: HTMLCanvasElement;
   private ctx!: CanvasRenderingContext2D;
   private animationFrameId?: number;
-  
+
   private particles: Particle[] = [];
   private shootingStars: ShootingStar[] = [];
   private nebulas: Nebula[] = [];
-  
+
   private mouseX = -1000;
   private mouseY = -1000;
   private isMouseIn = false;
 
   // Configuration
   private readonly particleCount = 400;
-  private readonly effectRadius = 200; 
+  private readonly effectRadius = 200;
   private readonly gravityStrength = 0.04;
   private readonly returnStrength = 0.025;
 
@@ -86,19 +94,19 @@ export class CelestialBackgroundDirective implements OnDestroy {
     this.isMouseIn = true;
     this.mouseX = event.clientX;
     this.mouseY = event.clientY;
-  }
+  };
 
   private onMouseLeave = () => {
     this.isMouseIn = false;
     this.mouseX = -1000;
     this.mouseY = -1000;
-  }
+  };
 
   private onVisibilityChange = () => {
     if (document.visibilityState === 'hidden') {
       this.onMouseLeave();
     }
-  }
+  };
 
   private resizeCanvas = () => {
     if (!this.canvas) return;
@@ -117,14 +125,14 @@ export class CelestialBackgroundDirective implements OnDestroy {
     this.renderer.setStyle(this.canvas, 'height', '100%');
     this.renderer.setStyle(this.canvas, 'z-index', '-1');
     this.renderer.setStyle(this.canvas, 'pointer-events', 'none');
-    
+
     this.renderer.appendChild(this.el.nativeElement, this.canvas);
-    
+
     const ctx = this.canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
     this.ctx = ctx;
     this.resizeCanvas();
-    
+
     window.addEventListener('resize', this.resizeCanvas);
     window.addEventListener('mousemove', this.onMouseMove);
     document.addEventListener('mouseenter', this.onMouseMove);
@@ -144,16 +152,65 @@ export class CelestialBackgroundDirective implements OnDestroy {
     if (isMobile) {
       // Specialized mobile configuration: center them more and use fewer, larger blobs
       this.nebulas = [
-        { x: 0.3, y: 0.4, radius: 0.8, color: 'rgba(147, 51, 234, 0.15)', angle: 0, speed: 0.0005 },
-        { x: 0.7, y: 0.6, radius: 0.9, color: 'rgba(59, 130, 246, 0.12)', angle: Math.PI / 2, speed: 0.0004 },
-        { x: 0.5, y: 0.3, radius: 0.7, color: 'rgba(236, 72, 153, 0.08)', angle: Math.PI, speed: 0.0006 }
+        {
+          x: 0.3,
+          y: 0.4,
+          radius: 0.8,
+          color: 'rgba(147, 51, 234, 0.15)',
+          angle: 0,
+          speed: 0.0005,
+        },
+        {
+          x: 0.7,
+          y: 0.6,
+          radius: 0.9,
+          color: 'rgba(59, 130, 246, 0.12)',
+          angle: Math.PI / 2,
+          speed: 0.0004,
+        },
+        {
+          x: 0.5,
+          y: 0.3,
+          radius: 0.7,
+          color: 'rgba(236, 72, 153, 0.08)',
+          angle: Math.PI,
+          speed: 0.0006,
+        },
       ];
     } else {
       this.nebulas = [
-        { x: 0.1, y: 0.2, radius: 0.6, color: 'rgba(147, 51, 234, 0.15)', angle: 0, speed: 0.0005 },
-        { x: 0.8, y: 0.8, radius: 0.7, color: 'rgba(59, 130, 246, 0.12)', angle: Math.PI / 2, speed: 0.0004 },
-        { x: 0.4, y: 0.5, radius: 0.5, color: 'rgba(236, 72, 153, 0.08)', angle: Math.PI, speed: 0.0006 },
-        { x: 0.2, y: 0.7, radius: 0.4, color: 'rgba(6, 182, 212, 0.1)', angle: Math.PI * 1.5, speed: 0.0003 }
+        {
+          x: 0.1,
+          y: 0.2,
+          radius: 0.6,
+          color: 'rgba(147, 51, 234, 0.15)',
+          angle: 0,
+          speed: 0.0005,
+        },
+        {
+          x: 0.8,
+          y: 0.8,
+          radius: 0.7,
+          color: 'rgba(59, 130, 246, 0.12)',
+          angle: Math.PI / 2,
+          speed: 0.0004,
+        },
+        {
+          x: 0.4,
+          y: 0.5,
+          radius: 0.5,
+          color: 'rgba(236, 72, 153, 0.08)',
+          angle: Math.PI,
+          speed: 0.0006,
+        },
+        {
+          x: 0.2,
+          y: 0.7,
+          radius: 0.4,
+          color: 'rgba(6, 182, 212, 0.1)',
+          angle: Math.PI * 1.5,
+          speed: 0.0003,
+        },
       ];
     }
   }
@@ -161,39 +218,50 @@ export class CelestialBackgroundDirective implements OnDestroy {
   private createParticles() {
     this.particles = [];
     for (let i = 0; i < this.particleCount; i++) {
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        const isStar = Math.random() > 0.4;
-        const size = isStar ? Math.random() * 1.5 + 0.5 : Math.random() * 1.2 + 0.2;
-        
-        this.particles.push({
-            baseX: x,
-            baseY: y,
-            x: x,
-            y: y,
-            size: size,
-            twinkle: isStar,
-            twinkleSpeed: Math.random() * 0.03 + 0.01,
-            twinklePhase: Math.random() * Math.PI * 2,
-            isStar: isStar,
-            color: isStar ? 'rgba(226, 232, 240, ' : 'rgba(148, 163, 184, ',
-            opacity: Math.random() * 0.5 + 0.5,
-        });
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      const isStar = Math.random() > 0.4;
+      const size = isStar
+        ? Math.random() * 1.5 + 0.5
+        : Math.random() * 1.2 + 0.2;
+
+      this.particles.push({
+        baseX: x,
+        baseY: y,
+        x: x,
+        y: y,
+        size: size,
+        twinkle: isStar,
+        twinkleSpeed: Math.random() * 0.1 + 0.01,
+        twinklePhase: Math.random() * Math.PI * 2,
+        isStar: isStar,
+        color: isStar ? 'rgba(226, 232, 240, ' : 'rgba(148, 163, 184, ',
+        opacity: Math.random() * 0.5 + 0.5,
+      });
     }
   }
 
   private triggerShootingStar() {
-    if (Math.random() > 0.995) {
-      const edge = Math.floor(Math.random() * 4); 
+    if (Math.random() > 0.97) {
+      const edge = Math.floor(Math.random() * 4);
       let x = 0;
       let y = 0;
       const tx = Math.random() * window.innerWidth;
       const ty = Math.random() * window.innerHeight;
 
-      if (edge === 0) { x = Math.random() * window.innerWidth; y = -50; }
-      else if (edge === 1) { x = window.innerWidth + 50; y = Math.random() * window.innerHeight; }
-      else if (edge === 2) { x = Math.random() * window.innerWidth; y = window.innerHeight + 50; }
-      else { x = -50; y = Math.random() * window.innerHeight; }
+      if (edge === 0) {
+        x = Math.random() * window.innerWidth;
+        y = -50;
+      } else if (edge === 1) {
+        x = window.innerWidth + 50;
+        y = Math.random() * window.innerHeight;
+      } else if (edge === 2) {
+        x = Math.random() * window.innerWidth;
+        y = window.innerHeight + 50;
+      } else {
+        x = -50;
+        y = Math.random() * window.innerHeight;
+      }
 
       const dx = tx - x;
       const dy = ty - y;
@@ -218,7 +286,7 @@ export class CelestialBackgroundDirective implements OnDestroy {
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
     // Draw Nebulas
-    this.nebulas.forEach(n => {
+    this.nebulas.forEach((n) => {
       n.angle += n.speed;
       const offsetX = Math.cos(n.angle) * 50;
       const offsetY = Math.sin(n.angle * 0.8) * 30;
@@ -229,7 +297,7 @@ export class CelestialBackgroundDirective implements OnDestroy {
       const grad = this.ctx.createRadialGradient(x, y, 0, x, y, r);
       grad.addColorStop(0, n.color);
       grad.addColorStop(1, 'rgba(0,0,0,0)');
-      
+
       this.ctx.fillStyle = grad;
       this.ctx.globalCompositeOperation = 'screen';
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -237,10 +305,18 @@ export class CelestialBackgroundDirective implements OnDestroy {
     });
 
     // Draw Black Hole Glow (Behind stars)
-    if (this.isMouseIn && this.mouseX !== -1000 && !this.celestialService.isOverUI()) {
+    if (
+      this.isMouseIn &&
+      this.mouseX !== -1000 &&
+      !this.celestialService.isOverUI()
+    ) {
       const gradient = this.ctx.createRadialGradient(
-        this.mouseX, this.mouseY, 0,
-        this.mouseX, this.mouseY, 50
+        this.mouseX,
+        this.mouseY,
+        0,
+        this.mouseX,
+        this.mouseY,
+        50,
       );
       gradient.addColorStop(0, 'rgba(0, 0, 0, 1)');
       gradient.addColorStop(0.4, 'rgba(5, 2, 10, 0.8)');
@@ -266,12 +342,21 @@ export class CelestialBackgroundDirective implements OnDestroy {
       s.y += s.vy;
       s.opacity -= 0.02;
 
-      if (s.opacity <= 0 || s.x > this.canvas.width || s.y > this.canvas.height) {
+      if (
+        s.opacity <= 0 ||
+        s.x > this.canvas.width ||
+        s.y > this.canvas.height
+      ) {
         this.shootingStars.splice(i, 1);
         continue;
       }
 
-      const grad = this.ctx.createLinearGradient(s.x, s.y, s.x - s.vx * 2, s.y - s.vy * 2);
+      const grad = this.ctx.createLinearGradient(
+        s.x,
+        s.y,
+        s.x - s.vx * 2,
+        s.y - s.vy * 2,
+      );
       grad.addColorStop(0, `rgba(255, 255, 255, ${s.opacity})`);
       grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
 
@@ -282,44 +367,44 @@ export class CelestialBackgroundDirective implements OnDestroy {
       this.ctx.lineTo(s.x - s.vx * 2, s.y - s.vy * 2);
       this.ctx.stroke();
     }
-    
+
     this.particles.forEach((p) => {
-        const dx = this.mouseX - p.x;
-        const dy = this.mouseY - p.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        const isOverUI = this.celestialService.isOverUI();
-        if (this.isMouseIn && !isOverUI && distance < this.effectRadius) {
-            const force = (this.effectRadius - distance) / this.effectRadius;
-            const pull = force * this.gravityStrength;
-            
-            const swirlStrength = force * 0.03;
-            const swirlX = -dy * swirlStrength;
-            const swirlY = dx * swirlStrength;
+      const dx = this.mouseX - p.x;
+      const dy = this.mouseY - p.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
 
-            p.x += dx * pull + swirlX;
-            p.y += dy * pull + swirlY;
-        } else {
-            p.x += (p.baseX - p.x) * this.returnStrength;
-            p.y += (p.baseY - p.y) * this.returnStrength;
-        }
+      const isOverUI = this.celestialService.isOverUI();
+      if (this.isMouseIn && !isOverUI && distance < this.effectRadius) {
+        const force = (this.effectRadius - distance) / this.effectRadius;
+        const pull = force * this.gravityStrength;
 
-        p.opacity = Math.min(1, (p.opacity ?? 1) + 0.01);
+        const swirlStrength = force * 0.03;
+        const swirlX = -dy * swirlStrength;
+        const swirlY = dx * swirlStrength;
 
-        let currentOpacity = 0.8;
-        if (p.twinkle) {
-            p.twinklePhase += p.twinkleSpeed;
-            currentOpacity = (Math.sin(p.twinklePhase) + 1) / 2 * 0.8 + 0.2;
-        }
-        
-        currentOpacity *= (p.opacity ?? 1);
+        p.x += dx * pull + swirlX;
+        p.y += dy * pull + swirlY;
+      } else {
+        p.x += (p.baseX - p.x) * this.returnStrength;
+        p.y += (p.baseY - p.y) * this.returnStrength;
+      }
 
-        this.ctx.beginPath();
-        this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        this.ctx.fillStyle = `${p.color}${Math.max(0.1, currentOpacity)})`;
-        this.ctx.fill();
+      p.opacity = Math.min(1, (p.opacity ?? 1) + 0.01);
+
+      let currentOpacity = 0.8;
+      if (p.twinkle) {
+        p.twinklePhase += p.twinkleSpeed;
+        currentOpacity = ((Math.sin(p.twinklePhase) + 1) / 2) * 0.8 + 0.2;
+      }
+
+      currentOpacity *= p.opacity ?? 1;
+
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      this.ctx.fillStyle = `${p.color}${Math.max(0.1, currentOpacity)})`;
+      this.ctx.fill();
     });
-    
+
     this.animationFrameId = requestAnimationFrame(this.animate);
   };
 }
