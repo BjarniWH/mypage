@@ -1,92 +1,162 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ViewChild,
+  ElementRef,
+  inject,
+  DestroyRef,
+} from '@angular/core';
 import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <div class="home-container">
-      <div class="hero-section">
-        <div class="hero-content">
-          <h1 class="hero-title">Welcome to Our Bureau</h1>
-          <p class="hero-subtitle">Creating digital excellence through design and innovation</p>
-          <button class="cta-button">Explore Our Work</button>
-        </div>
-        <div class="hero-visual">
-          <div class="floating-card">
-            <div class="card-inner">Design</div>
-          </div>
-          <div class="floating-card">
-            <div class="card-inner">Digital</div>
-          </div>
-          <div class="floating-card">
-            <div class="card-inner">Innovation</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="features-section">
-        <h2>Why Choose Us</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">🎨</div>
-            <h3>Creative Design</h3>
-            <p>Stunning visuals that capture your brand's essence</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Performance</h3>
-            <p>Fast, responsive, and optimized experiences</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🔧</div>
-            <h3>Technical Excellence</h3>
-            <p>Built with modern technologies and best practices</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  `,
-  styleUrls: ['./home.component.scss']
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  ngOnInit() {
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('ctaBtn') private ctaBtn!: ElementRef<HTMLButtonElement>;
+
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly floatingTimelines = new Map<
+    HTMLElement,
+    gsap.core.Timeline
+  >();
+
+  ngOnInit(): void {
     this.animateHero();
   }
 
-  private animateHero() {
-    gsap.from('.hero-title', {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      ease: 'power2.out'
+  ngAfterViewInit(): void {
+    this.setupButtonHover();
+    this.setupCardHover();
+  }
+
+  private animateHero(): void {
+    gsap.fromTo(
+      '.hero-title',
+      { opacity: 0, y: 30 },
+      {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        ease: 'power2.out',
+        clearProps: 'transform',
+      },
+    );
+
+    gsap.fromTo(
+      '.hero-subtitle',
+      { opacity: 0, y: 30 },
+      {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        delay: 0.2,
+        ease: 'power2.out',
+        clearProps: 'transform',
+      },
+    );
+
+    // Same entrance as title/subtitle. clearProps cleans up inline transform
+    // so GSAP hover can take over cleanly.
+    gsap.fromTo(
+      '.cta-button',
+      { opacity: 0, y: 30 },
+      {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        delay: 0.4,
+        ease: 'power2.out',
+        clearProps: 'transform',
+      },
+    );
+
+    const timelines: gsap.core.Timeline[] = [];
+    gsap.utils.toArray<HTMLElement>('.floating-card').forEach((card, i) => {
+      const tl = gsap.timeline({ repeat: -1, delay: i * 0.6 });
+      tl.to(card, { duration: 1.5, y: -20, ease: 'sine.inOut' }).to(card, {
+        duration: 1.5,
+        y: 0,
+        ease: 'sine.inOut',
+      });
+      timelines.push(tl);
+      this.floatingTimelines.set(card, tl);
     });
 
-    gsap.from('.hero-subtitle', {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      delay: 0.2,
-      ease: 'power2.out'
+    this.destroyRef.onDestroy(() => timelines.forEach((tl) => tl.kill()));
+  }
+
+  private setupCardHover(): void {
+    const cleanupFns: (() => void)[] = [];
+
+    this.floatingTimelines.forEach((tl, card) => {
+      const initialShadow = getComputedStyle(card).boxShadow;
+
+      const onEnter = () => {
+        tl.pause();
+        gsap.to(card, {
+          scale: 1.05,
+          transformOrigin: 'center center',
+          boxShadow: '0 28px 56px rgba(0, 0, 0, 0.55)',
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      };
+      const onLeave = () => {
+        gsap.to(card, {
+          scale: 1,
+          transformOrigin: 'center center',
+          boxShadow: initialShadow,
+          duration: 0.3,
+          ease: 'power2.out',
+          onComplete: () => tl.restart(),
+        });
+      };
+
+      card.addEventListener('mouseenter', onEnter);
+      card.addEventListener('mouseleave', onLeave);
+      cleanupFns.push(() => {
+        card.removeEventListener('mouseenter', onEnter);
+        card.removeEventListener('mouseleave', onLeave);
+      });
     });
 
-    gsap.from('.cta-button', {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      delay: 0.4,
-      ease: 'power2.out'
-    });
+    this.destroyRef.onDestroy(() => cleanupFns.forEach((fn) => fn()));
+  }
 
-    gsap.to('.floating-card', {
-      duration: 3,
-      y: -20,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      stagger: 0.2
+  private setupButtonHover(): void {
+    const btn = this.ctaBtn.nativeElement;
+
+    const onEnter = () =>
+      gsap.to(btn, {
+        y: -3,
+        duration: 0.25,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    const onLeave = () =>
+      gsap.to(btn, {
+        y: 0,
+        duration: 0.25,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    const onDown = () =>
+      gsap.to(btn, { y: -1, duration: 0.1, overwrite: 'auto' });
+
+    btn.addEventListener('mouseenter', onEnter);
+    btn.addEventListener('mouseleave', onLeave);
+    btn.addEventListener('mousedown', onDown);
+
+    this.destroyRef.onDestroy(() => {
+      btn.removeEventListener('mouseenter', onEnter);
+      btn.removeEventListener('mouseleave', onLeave);
+      btn.removeEventListener('mousedown', onDown);
     });
   }
 }

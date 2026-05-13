@@ -5,24 +5,28 @@ A professional, modern web bureau application built with Angular, featuring glas
 ## Features Included
 
 ✅ **Pages**
+
 - Home - Hero section with floating cards, feature cards, and animations
 - About - Team story, stats display, and core values
 - Portfolio - Showcase of 6 sample projects with hover effects
 - Contact - Professional contact form with validation and info cards
 
 ✅ **Design System**
+
 - Glass morphism UI components with backdrop blur effects
 - Warm color palette (warm yellows, oranges, and amber tones)
 - Responsive grid layouts for all screen sizes
 - Smooth transitions and hover effects throughout
 
 ✅ **Theme Support**
+
 - Dark and Light mode toggle in navigation
 - Theme preference persisted to localStorage
 - System preference detection as fallback
 - Smooth transitions between themes
 
 ✅ **Animations**
+
 - GSAP animations for hero elements
 - Staggered animations for cards and lists
 - Floating animations for visual interest
@@ -64,6 +68,7 @@ apps/web-bureau/
 ## Color Palette
 
 ### Light Mode
+
 - Primary: #f5a962 (Warm Orange)
 - Secondary: #ff9456 (Warm Coral)
 - Accent: #fff5e6 (Warm Cream)
@@ -71,6 +76,7 @@ apps/web-bureau/
 - Background: #fafaf8
 
 ### Dark Mode
+
 - Primary: #ff9d6a
 - Secondary: #f5a962
 - Background: #1a1a1a
@@ -109,4 +115,5 @@ The app will be available at `http://localhost:4200`
 4. **Content**: Replace placeholder text and images in each page component
 
 ---
+
 Created with ❤️ using Angular and GSAP

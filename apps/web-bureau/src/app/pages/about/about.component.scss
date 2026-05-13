@@ -1,16 +1,5 @@
 .about-container {
-  animation: fadeIn 0.8s ease-out;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  // GSAP handles stat card entrance — no container CSS animation needed
 }
 
 .about-hero {
@@ -18,7 +7,11 @@
   margin-bottom: var(--spacing-xxl);
 
   h1 {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -68,7 +61,11 @@
 
     .stat-card {
       padding: var(--spacing-lg);
-      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+      );
       color: white;
       border-radius: var(--radius-lg);
       text-align: center;

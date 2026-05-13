@@ -1,14 +1,5 @@
 .portfolio-container {
-  animation: fadeIn 0.8s ease-out;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  // GSAP handles item entrance — no container CSS animation needed
 }
 
 .portfolio-hero {
@@ -16,7 +7,11 @@
   margin-bottom: var(--spacing-xxl);
 
   h1 {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -35,44 +30,57 @@
   gap: var(--spacing-xl);
 
   .portfolio-item {
+    cursor: pointer;
+    /* GSAP owns transform: lift on item, scale on image. CSS handles box-shadow/border-color. */
+
+    &:hover .portfolio-card {
+      box-shadow: 0 16px 48px rgba(245, 169, 98, 0.2);
+      border-color: var(--color-primary);
+    }
+
     .portfolio-card {
-      background: var(--color-glass);
+      /* No backdrop-filter here — moved to ::before to prevent compositor
+         layer from pinning overflow:hidden clip at the original viewport
+         position when the parent item translates via GSAP. */
+      position: relative;
+      isolation: isolate;
       border: 1px solid var(--color-glass-border);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      transition: var(--transition-smooth);
-      cursor: pointer;
+      transition: box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.3s ease;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       height: 100%;
       display: flex;
       flex-direction: column;
 
-      &:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 16px 48px rgba(245, 169, 98, 0.2);
-        border-color: var(--color-primary);
-
-        .portfolio-image {
-          transform: scale(1.1);
-        }
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--color-glass);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 0;
+        pointer-events: none;
       }
 
       .portfolio-image {
         width: 100%;
         height: 250px;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-        transition: var(--transition-smooth);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-secondary)
+        );
         position: relative;
+        z-index: 1;
+        flex-shrink: 0;
 
         &::after {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          inset: 0;
           background: radial-gradient(
             circle at 30% 30%,
             rgba(255, 255, 255, 0.2) 0%,
@@ -86,6 +94,8 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        position: relative;
+        z-index: 1;
 
         h3 {
           color: var(--color-primary);
@@ -111,12 +121,6 @@
             border-radius: var(--radius-sm);
             font-size: 0.85rem;
             font-weight: 600;
-            opacity: 0.9;
-            transition: var(--transition-default);
-
-            &:hover {
-              opacity: 1;
-            }
           }
         }
       }

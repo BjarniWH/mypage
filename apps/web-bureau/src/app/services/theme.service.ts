@@ -3,7 +3,7 @@ import { Injectable, signal } from '@angular/core';
 export type Theme = 'light' | 'dark';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private readonly THEME_KEY = 'web-bureau-theme';
@@ -25,7 +25,9 @@ export class ThemeService {
     const saved = localStorage.getItem(this.THEME_KEY) as Theme | null;
     if (saved) return saved;
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
   }
 
   private applyTheme(theme: Theme): void {

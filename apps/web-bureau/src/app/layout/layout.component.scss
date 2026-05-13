@@ -2,7 +2,16 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-light) 0%,
+    var(--color-accent) 100%
+  );
   transition: var(--transition-smooth);
+
+  &.dark-mode {
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1f1f1f 100%);
+  }
 }
 
 /* Navbar */
@@ -28,7 +37,11 @@
   .navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -56,7 +69,11 @@
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        background: linear-gradient(
+          90deg,
+          var(--color-primary),
+          var(--color-secondary)
+        );
         transition: width 0.3s ease;
       }
 

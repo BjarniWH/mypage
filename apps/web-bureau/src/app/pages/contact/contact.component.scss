@@ -1,14 +1,5 @@
 .contact-container {
-  animation: fadeIn 0.8s ease-out;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  // GSAP handles form entrance — no container CSS animation needed
 }
 
 .contact-hero {
@@ -16,7 +7,11 @@
   margin-bottom: var(--spacing-xxl);
 
   h1 {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -91,7 +86,11 @@
         padding: var(--spacing-md) var(--spacing-xl);
         margin-top: var(--spacing-md);
         font-size: 1.1rem;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-secondary)
+        );
         color: white;
         border: none;
         border-radius: var(--radius-md);
