@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  inject,
+} from '@angular/core';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -45,14 +50,14 @@ export class ContactComponent implements OnInit {
         x: 0,
         ease: 'power2.out',
         clearProps: 'transform',
-      }
+      },
     );
 
     // Info cards have CSS hover transform: translateY(-6px) — opacity only.
     gsap.fromTo(
       '.info-card',
-      { opacity: 0 },
-      { duration: 0.8, opacity: 1, stagger: 0.15, ease: 'power2.out' }
+      { opacity: 0.7, y: 20 },
+      { duration: 0.8, opacity: 1, y: 0, stagger: 0.15, ease: 'power2.out' },
     );
   }
 }

@@ -36,40 +36,40 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       description:
         'A sleek and responsive e-commerce solution with stunning animations',
       tags: ['Design', 'Development', 'Animation'],
-      color: 'linear-gradient(135deg, #f5a962 0%, #f78552 100%)',
+      color: 'linear-gradient(135deg, #5ba4cf 0%, #7ecfe4 100%)',
     },
     {
       title: 'Brand Identity System',
       description:
         'Complete branding package including logo, guidelines, and digital assets',
       tags: ['Branding', 'Design', 'Guidelines'],
-      color: 'linear-gradient(135deg, #ff9a56 0%, #ff8a4b 100%)',
+      color: 'linear-gradient(135deg, #3d8ab8 0%, #5ba4cf 100%)',
     },
     {
       title: 'Mobile App Experience',
       description: 'User-centric mobile application with smooth interactions',
       tags: ['UI/UX', 'Development', 'Mobile'],
-      color: 'linear-gradient(135deg, #f59e6e 0%, #f58d5a 100%)',
+      color: 'linear-gradient(135deg, #7ecfe4 0%, #a8e4f0 100%)',
     },
     {
       title: 'Corporate Website',
       description:
         'Professional website showcasing company services and expertise',
       tags: ['Web', 'Design', 'SEO'],
-      color: 'linear-gradient(135deg, #f5a962 0%, #ff9456 100%)',
+      color: 'linear-gradient(135deg, #4a90b8 0%, #7ecfe4 100%)',
     },
     {
       title: 'Digital Marketing Campaign',
       description: 'Integrated campaign with web, social, and print elements',
       tags: ['Marketing', 'Design', 'Strategy'],
-      color: 'linear-gradient(135deg, #ff9d6a 0%, #ff8c5a 100%)',
+      color: 'linear-gradient(135deg, #5ba4cf 0%, #3d8ab8 100%)',
     },
     {
       title: 'Interactive Dashboard',
       description:
         'Real-time data visualization with beautiful and functional design',
       tags: ['Development', 'Data', 'UI'],
-      color: 'linear-gradient(135deg, #f5a962 0%, #ff9b5c 100%)',
+      color: 'linear-gradient(135deg, #2d7aaa 0%, #5ba4cf 100%)',
     },
   ];
 
