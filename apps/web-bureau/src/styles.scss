@@ -1,0 +1,168 @@
+/* Color Palette - Warm Colors */
+:root {
+  /* Light Mode - Warm Tones */
+  --color-primary: #f5a962;
+  --color-primary-dark: #f08844;
+  --color-secondary: #ff9456;
+  --color-accent: #fff5e6;
+  --color-text-dark: #2d2d2d;
+  --color-text-light: #666666;
+  --color-bg-light: #fafaf8;
+  --color-bg-lighter: #ffffff;
+  --color-glass: rgba(255, 250, 245, 0.7);
+  --color-glass-border: rgba(255, 165, 98, 0.2);
+
+  /* Dark Mode - Warm Tones */
+  --color-primary-dark-mode: #ff9d6a;
+  --color-secondary-dark-mode: #f5a962;
+  --color-text-dark-mode: #f5f5f5;
+  --color-text-light-dark-mode: #b3b3b3;
+  --color-bg-dark: #1a1a1a;
+  --color-bg-darker: #0d0d0d;
+  --color-glass-dark: rgba(30, 30, 30, 0.7);
+  --color-glass-border-dark: rgba(255, 157, 106, 0.2);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+
+  /* Transitions */
+  --transition-default: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Light Mode */
+.light-mode {
+  color-scheme: light;
+}
+
+/* Dark Mode */
+.dark-mode {
+  color-scheme: dark;
+  --color-text-dark: var(--color-text-dark-mode);
+  --color-text-light: var(--color-text-light-dark-mode);
+  --color-primary: var(--color-primary-dark-mode);
+  --color-secondary: var(--color-secondary-dark-mode);
+  --color-bg-light: var(--color-bg-dark);
+  --color-bg-lighter: var(--color-bg-darker);
+  --color-glass: var(--color-glass-dark);
+  --color-glass-border: var(--color-glass-border-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-accent) 100%);
+  color: var(--color-text-dark);
+  transition: var(--transition-smooth);
+}
+
+.dark-mode body {
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1f1f1f 100%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Global Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-dark);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  line-height: 1.6;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-default);
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition-default);
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* Glass Morphism Effect */
+.glass {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}

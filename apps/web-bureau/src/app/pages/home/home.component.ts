@@ -1,0 +1,92 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { gsap } from 'gsap';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <div class="home-container">
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">Welcome to Our Bureau</h1>
+          <p class="hero-subtitle">Creating digital excellence through design and innovation</p>
+          <button class="cta-button">Explore Our Work</button>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card">
+            <div class="card-inner">Design</div>
+          </div>
+          <div class="floating-card">
+            <div class="card-inner">Digital</div>
+          </div>
+          <div class="floating-card">
+            <div class="card-inner">Innovation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-section">
+        <h2>Why Choose Us</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Creative Design</h3>
+            <p>Stunning visuals that capture your brand's essence</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Performance</h3>
+            <p>Fast, responsive, and optimized experiences</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Technical Excellence</h3>
+            <p>Built with modern technologies and best practices</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent {
+  ngOnInit() {
+    this.animateHero();
+  }
+
+  private animateHero() {
+    gsap.from('.hero-title', {
+      duration: 1,
+      opacity: 0,
+      y: 30,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.hero-subtitle', {
+      duration: 1,
+      opacity: 0,
+      y: 30,
+      delay: 0.2,
+      ease: 'power2.out'
+    });
+
+    gsap.from('.cta-button', {
+      duration: 1,
+      opacity: 0,
+      y: 30,
+      delay: 0.4,
+      ease: 'power2.out'
+    });
+
+    gsap.to('.floating-card', {
+      duration: 3,
+      y: -20,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+      stagger: 0.2
+    });
+  }
+}

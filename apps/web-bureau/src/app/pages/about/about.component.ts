@@ -1,0 +1,85 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { gsap } from 'gsap';
+
+@Component({
+  selector: 'app-about',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <div class="about-container">
+      <div class="about-hero">
+        <h1>About Our Bureau</h1>
+        <p class="subtitle">Crafting digital experiences with passion and precision</p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>
+            We are a creative digital bureau dedicated to transforming ideas into stunning digital experiences.
+            With a team of designers, developers, and strategists, we deliver solutions that blend creativity
+            with technical excellence.
+          </p>
+          <p>
+            Our approach combines modern design principles with cutting-edge technology to create products
+            that not only look beautiful but perform exceptionally well.
+          </p>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Team Members</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="values-section">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <h3>Quality</h3>
+            <p>We never compromise on quality or attention to detail</p>
+          </div>
+          <div class="value-item">
+            <h3>Innovation</h3>
+            <p>Constantly exploring new technologies and approaches</p>
+          </div>
+          <div class="value-item">
+            <h3>Collaboration</h3>
+            <p>Working closely with clients to achieve their vision</p>
+          </div>
+          <div class="value-item">
+            <h3>Excellence</h3>
+            <p>Striving for excellence in every aspect of our work</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  styleUrls: ['./about.component.scss']
+})
+export class AboutComponent {
+  ngOnInit() {
+    this.animateStats();
+  }
+
+  private animateStats() {
+    gsap.from('.stat-card', {
+      duration: 0.8,
+      opacity: 0,
+      y: 30,
+      stagger: 0.2,
+      ease: 'power2.out'
+    });
+  }
+}
