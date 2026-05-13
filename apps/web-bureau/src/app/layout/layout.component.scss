@@ -160,12 +160,20 @@
 @media (max-width: 768px) {
   .navbar .navbar-container {
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--spacing-md);
+  }
+
+  .navbar .navbar-brand {
+    position: static;
+    width: 100%;
+    text-align: center;
   }
 
   .navbar .nav-links {
     order: 3;
     width: 100%;
+    justify-content: center;
     gap: var(--spacing-lg);
   }
 
