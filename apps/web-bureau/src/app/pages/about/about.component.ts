@@ -16,7 +16,7 @@ export class AboutComponent implements OnInit {
   private animateStats(): void {
     gsap.fromTo(
       '.stat-card',
-      { opacity: 0, y: 20 },
+      { opacity: 0.7, y: 20 },
       {
         duration: 0.4,
         opacity: 1,

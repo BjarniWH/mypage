@@ -79,8 +79,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     const timelines: gsap.core.Timeline[] = [];
     gsap.utils.toArray<HTMLElement>('.floating-card').forEach((card, i) => {
       const tl = gsap.timeline({ repeat: -1, delay: i * 0.6 });
-      tl.to(card, { duration: 1.5, y: -20, ease: 'sine.inOut' }).to(card, {
-        duration: 1.5,
+      tl.to(card, { duration: 2.5, y: -8, ease: 'sine.inOut' }).to(card, {
+        duration: 2.5,
         y: 0,
         ease: 'sine.inOut',
       });
