@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         gsap.to(card, {
           scale: 1.05,
           transformOrigin: 'center center',
-          boxShadow: '0 28px 56px rgba(0, 0, 0, 0.55)',
+          boxShadow: '0 28px 56px rgba(91, 164, 207, 0.5)',
           duration: 0.3,
           ease: 'power2.out',
         });

@@ -14,12 +14,94 @@
   }
 }
 
+/* Frost Orbs */
+.frost-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.45;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #7ecfe4, #5ba4cf);
+  top: -150px;
+  left: -100px;
+  animation: drift-1 28s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #a8e4f0, #7ecfe4);
+  top: 30%;
+  right: -120px;
+  animation: drift-2 34s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #5ba4cf, #3d8ab8);
+  bottom: 10%;
+  left: 20%;
+  animation: drift-3 38s ease-in-out infinite;
+}
+
+.orb-4 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #c8eef7, #7ecfe4);
+  top: 55%;
+  left: 55%;
+  animation: drift-4 30s ease-in-out infinite;
+}
+
+.dark-mode .orb {
+  opacity: 0.18;
+}
+
+@keyframes drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(60px, 80px) scale(1.08); }
+  66%       { transform: translate(-40px, 50px) scale(0.95); }
+}
+
+@keyframes drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-70px, 60px) scale(1.05); }
+  66%       { transform: translate(40px, -50px) scale(1.1); }
+}
+
+@keyframes drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(50px, -70px) scale(1.06); }
+  66%       { transform: translate(-60px, 40px) scale(0.97); }
+}
+
+@keyframes drift-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-50px, 60px) scale(1.1); }
+  66%       { transform: translate(70px, -40px) scale(0.95); }
+}
+
 /* Navbar */
 .navbar {
+  position: relative;
+  z-index: 100;
   background: var(--color-glass);
   border-bottom: 1px solid var(--color-glass-border);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -91,6 +173,8 @@
 
 /* Main Content */
 .main-content {
+  position: relative;
+  z-index: 1;
   flex: 1;
   max-width: 1200px;
   margin: 0 auto;
@@ -100,10 +184,12 @@
 
 /* Footer */
 .footer {
+  position: relative;
+  z-index: 1;
   background: var(--color-glass);
   border-top: 1px solid var(--color-glass-border);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   margin-top: var(--spacing-xxl);
 
   .footer-content {
