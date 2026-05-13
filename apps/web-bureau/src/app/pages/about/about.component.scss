@@ -60,6 +60,7 @@
     gap: var(--spacing-lg);
 
     .stat-card {
+      opacity: 0;
       padding: var(--spacing-lg);
       background: linear-gradient(
         135deg,

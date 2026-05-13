@@ -1,6 +1,6 @@
 import {
   Component,
-  OnInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   inject,
 } from '@angular/core';
@@ -20,7 +20,7 @@ import { gsap } from 'gsap';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements AfterViewInit {
   private readonly fb = inject(FormBuilder);
 
   contactForm: FormGroup = this.fb.group({
@@ -30,7 +30,7 @@ export class ContactComponent implements OnInit {
     message: ['', Validators.required],
   });
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.animateForm();
   }
 
@@ -56,8 +56,8 @@ export class ContactComponent implements OnInit {
     // Info cards have CSS hover transform: translateY(-6px) — opacity only.
     gsap.fromTo(
       '.info-card',
-      { opacity: 0.7, y: 20 },
-      { duration: 0.8, opacity: 1, y: 0, stagger: 0.15, ease: 'power2.out' },
+      { opacity: 0, y: 20 },
+      { duration: 0.8, opacity: 1, y: 0, stagger: 0.15, ease: 'power2.out', clearProps: 'transform' },
     );
   }
 }
